@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <property name="USER_HOME" value="logs/"/>
-    <property name="FILE_NAME" value="logger.log"/>
+    <property name="LOG_DIR" value="logs"/>
+    <property name="LOG_NAME" value="logger"/>
 
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
@@ -13,21 +13,21 @@
     </appender>
 
     <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${USER_HOME}${FILE_NAME}</file>
+        <file>${LOG_DIR}/${LOG_NAME}.log</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <Pattern>
                 %d [%t] %-5level %logger{36} - %msg%n
             </Pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${USER_HOME}.%d{yyyy-MM-dd}.%i.${FILE_NAME}</fileNamePattern>
+            <fileNamePattern>${LOG_DIR}/.%d{yyyy-MM-dd}.%i.${LOG_NAME}.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>10MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
     </appender>
 
-    <logger name="application" level="trace" additivity="false">
+    <logger name="Application" level="trace" additivity="false">
         <appender-ref ref="console"/>
         <appender-ref ref="file"/>
     </logger>
