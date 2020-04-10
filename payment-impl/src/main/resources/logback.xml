@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <configuration>
+
+    <property name="USER_HOME" value="logs/"/>
+    <property name="FILE_NAME" value="logger.log"/>
+
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
             <Pattern>
-                %d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n
+                %d [%t] %-5level %logger{36} - %msg%n
             </Pattern>
         </layout>
     </appender>
 
-    <appender name="file" class="ch.qos.logback.core.ConsoleAppender">
-        <file>logs/logger.log</file>
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${USER_HOME}${FILE_NAME}</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <Pattern>
-                %d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n
+                %d [%t] %-5level %logger{36} - %msg%n
             </Pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>logs/logger.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <timeBasedFileNamingAndTriggeringPolicy
-                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+            <fileNamePattern>${USER_HOME}.%d{yyyy-MM-dd}.%i.${FILE_NAME}</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>10MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
     </appender>
 
-    <logger name="consoleLogger" level="info" additivity="false">
+    <logger name="application" level="trace" additivity="false">
         <appender-ref ref="console"/>
-    </logger>
-    <logger name="fileLogger" level="info" additivity="false">
         <appender-ref ref="file"/>
     </logger>
 
-    <root level="info">
-        <appender-ref ref="file"/>
+    <root level="trace">
+        <appender-ref ref="console"/>
     </root>
 
 </configuration>
