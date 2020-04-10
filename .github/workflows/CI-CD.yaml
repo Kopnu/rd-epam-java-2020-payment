@@ -23,6 +23,9 @@ jobs:
       - run: mvn -f pom.xml clean compile
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: [ 11 ]
     name: Java ${{ matrix.java }} build test
     steps:
       - uses: actions/checkout@v1
