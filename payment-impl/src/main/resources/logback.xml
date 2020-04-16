@@ -24,7 +24,7 @@
         </rollingPolicy>
     </appender>
 
-    <logger name="paymentImpLogger" level="trace" additivity="false">
+    <logger name="Application" level="trace" additivity="false">
         <appender-ref ref="console"/>
         <appender-ref ref="file"/>
     </logger>
