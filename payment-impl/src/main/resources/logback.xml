@@ -1,39 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <property name="LOG_DIR" value="logs"/>
-    <property name="LOG_NAME" value="logger"/>
+    <!-- Properties -->
+    <property name="LOG.DIR" value="logs"/>
+    <property name="LOG.NAME" value="log"/>
+    <property name="ROOT.LEVEL" value="TRACE"/>
+    <property name="APP.LEVEL" value="TRACE"/>
+    <property name="FILE.LEVEL" value="TRACE"/>
 
-    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+    <timestamp key="TIMESTAMP" datePattern="yyyy-MM-dd"/>
+
+    <!-- Appenders -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
-            <Pattern>
-                %d [%t] %-5level %logger{36} - %msg%n
-            </Pattern>
+            <pattern>%highlight(%d) [%t] %highlight(%-5level) %logger{36} - %msg%n</pattern>
         </layout>
     </appender>
 
-    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_DIR}/${LOG_NAME}.log</file>
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG.DIR}/${LOG.NAME}-${TIMESTAMP}.log</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <Pattern>
-                %d [%t] %-5level %logger{36} - %msg%n
-            </Pattern>
+            <pattern>%d %-5level [%t] %logger{36} - %msg%n</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_DIR}/.%d{yyyy-MM-dd}.%i.${LOG_NAME}.log</fileNamePattern>
+            <fileNamePattern>${LOG.DIR}/.%d{yyyy-MM-dd}.%i.${LOG.NAME}.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>10MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
     </appender>
 
-    <logger name="Application" level="trace" additivity="false">
-        <appender-ref ref="console"/>
-        <appender-ref ref="file"/>
+    <!-- Loggers -->
+    <logger name="Application" level="${APP.LEVEL:-DEBUG}" additivity="FALSE">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDERR"/>
+        <appender-ref ref="FILE"/>
     </logger>
 
-    <root level="trace">
-        <appender-ref ref="console"/>
+    <root level="${ROOT.LEVEL:-OFF}">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDERR"/>
     </root>
 
 </configuration>
