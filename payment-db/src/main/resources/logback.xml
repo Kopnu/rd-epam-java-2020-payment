@@ -9,7 +9,7 @@
         </layout>
     </appender>
 
-    <appender name="file" class="ch.qos.logback.core.ConsoleAppender">
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>logs/logger.log</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <Pattern>
