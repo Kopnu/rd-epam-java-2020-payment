@@ -20,7 +20,6 @@
     <properties>
         <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
         <lombok.version>1.18.12</lombok.version>
         <logback-classic.version>1.2.3</logback-classic.version>
     </properties>
@@ -39,11 +38,6 @@
                 <artifactId>logback-classic</artifactId>
                 <version>${logback-classic.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.codehaus.janino</groupId>
-                <artifactId>janino</artifactId>
-                <version>${janino.version}</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -52,6 +46,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
@@ -60,6 +55,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
+                <version>3.9.0</version>
                 <configuration>
                     <outputEncoding>${project.build.sourceEncoding}</outputEncoding>
                 </configuration>
