@@ -20,10 +20,10 @@
     <properties>
         <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
         <lombok.version>1.18.12</lombok.version>
         <logback-classic.version>1.2.3</logback-classic.version>
-        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-        <maven-site-plugin.version>3.9.0</maven-site-plugin.version>
+        <janino.version>3.0.6</janino.version>
     </properties>
 
     <dependencyManagement>
@@ -33,12 +33,16 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
-                <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
                 <version>${logback-classic.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.janino</groupId>
+                <artifactId>janino</artifactId>
+                <version>${janino.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -48,7 +52,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-compiler-plugin.version}</version>
+                <version>3.8.1</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
@@ -57,11 +61,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
-                <version>${maven-site-plugin.version}</version>
+                <version>3.9.0</version>
                 <configuration>
                     <outputEncoding>${project.build.sourceEncoding}</outputEncoding>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-</project> 
+
+</project>
