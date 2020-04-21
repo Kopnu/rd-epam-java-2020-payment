@@ -25,12 +25,10 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>${postgresql.version}</version>
         </dependency>
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
-            <version>${liquibase.version}</version>
         </dependency>
     </dependencies>
 
@@ -43,9 +41,7 @@
                 <configuration>
                     <outputFileEncoding>UTF-8</outputFileEncoding>
                     <driver>org.postgresql.Driver</driver>
-                    <url>
-                        jdbc:postgresql://${liquibase.host}:${liquibase.port}/${liquibase.db}?currentSchema=${liquibase.schema}
-                    </url>
+                    <url>jdbc:postgresql://${liquibase.host}:${liquibase.port}/${liquibase.db}?currentSchema=${liquibase.schema}</url>
                     <username>${liquibase.user}</username>
                     <password>${liquibase.password}</password>
                     <changeLogFile>${liquibase.changelogfile}</changeLogFile>

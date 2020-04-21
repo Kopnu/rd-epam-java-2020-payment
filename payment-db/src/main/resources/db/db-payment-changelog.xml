@@ -8,5 +8,7 @@
          http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
     <property name="schema" value="payment"/>
     <property name="prefix" value="pm"/>
-    <include file="changelog/v1.0/1.0-01_init-db.xml" relativeToChangelogFile="true"/>
+
+    <include file="changelog/v1.0/v1.0-01_init-db.xml" relativeToChangelogFile="true"/>
+
 </databaseChangeLog>

@@ -7,27 +7,44 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
       http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
 
-    <changeSet id="2020-04-22-insert-account-statuses" author="Dmitrii_Lopatin">
-        <createTable tableName="${schema}.${prefix}_account_statuses">
+    <changeSet id="2020-04-22-add-account-statuses" author="Dmitrii_Lopatin">
+        <createTable tableName="${prefix}_account_statuses">
             <column name="id" type="VARCHAR(64)" />
             <column name="status" type="VARCHAR(14)" />
         </createTable>
     </changeSet>
 
-    <changeSet id="2020-04-22-insert-account-statuses_keys" author="Dmitrii_Lopatin">
-        <addPrimaryKey tableName="${schema}.${prefix}_account_statuses" columnNames="id" />
+    <changeSet id="2020-04-22-add-account-statuses_keys" author="Dmitrii_Lopatin">
+        <addPrimaryKey tableName="${prefix}_account_statuses" columnNames="id" />
     </changeSet>
 
-    <changeSet id="2020-04-22-insert-clients" author="Dmitrii_Lopatin">
-        <createTable tableName="${schema}.${prefix}_clients">
+    <changeSet id="2020-04-22-add-clients" author="Dmitrii_Lopatin">
+        <createTable tableName="${prefix}_clients">
             <column name="client_id" type="VARCHAR(64)" />
             <column name="name" type="VARCHAR(40)" />
             <column name="description" type="TEXT" />
         </createTable>
     </changeSet>
 
-    <changeSet id="2020-04-22-insert-clients_keys" author="Dmitrii_Lopatin">
-        <addPrimaryKey tableName="${schema}.${prefix}_clients" columnNames="client_id" />
+    <changeSet id="2020-04-22-add-clients_key" author="Dmitrii_Lopatin">
+        <addPrimaryKey tableName="${prefix}_clients" columnNames="client_id" />
+    </changeSet>
+
+    <changeSet id="2020-04-22-add-accounts" author="Dmitrii_Lopatin">
+        <createTable tableName="${prefix}_clients">
+            <column name="account_id" type="VARCHAR(64)" />
+            <column name="client_id" type="VARCHAR(64)" />
+            <column name="account_number" type="VARCHAR(24)" />
+            <column name="ogrn" type="VARCHAR(26)" />
+            <column name="kpp" type="VARCHAR(18)" />
+            <column name="inn" type="VARCHAR(24)" />
+            <column name="account_status_id" type="VARCHAR(64)" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2020-04-22-add-accounts_keys" author="Dmitrii_Lopatin">
+        <addPrimaryKey tableName="${prefix}_accounts" columnNames="account_id" />
+        <addForeignKey tableName="${prefix}_accounts" columnNames="account_id" />
     </changeSet>
 
 </databaseChangeLog>
