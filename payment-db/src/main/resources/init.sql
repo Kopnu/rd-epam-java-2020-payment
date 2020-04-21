@@ -2,9 +2,9 @@ drop schema if exists payment cascade;
 
 create schema payment;
 
-drop role if exists pay;
+drop user if exists pay;
 
-create role pay LOGIN password 'pay' valid until 'infinity';
+create user pay password 'pay' valid until 'infinity';
 
 grant select, insert, update, delete, truncate on all tables in schema payment to pay;
 

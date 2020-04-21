@@ -20,6 +20,6 @@ insert into payment.pm_accept_statuses (id, status) values
 	('3','Оплачен'),
 	('4','Ошибка');
 
-insert into payment.pm_accepts (accept_id, payment_public_id, client_callback_url,client_payment_url,key,accept_status_id) values
+insert into payment.pm_accepts (accept_id, payment_private_id, client_callback_url,client_payment_url,key,accept_status_id) values
 	('1','1','firtsclient','secondclient','42523906','1'),
 	('2','2','secondclient','firstclient','3575732','3');
