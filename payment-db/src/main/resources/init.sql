@@ -17,6 +17,12 @@ create table payment.pm_account_statuses (
 	status varchar(14)
 );
 
+create table payment.pm_clients (
+	client_id varchar(64) primary key,
+	name varchar(40),
+	description text
+);
+
 create table payment.pm_accounts ( 
 	account_id varchar(64) primary key,
 	client_id varchar(64),
@@ -25,13 +31,8 @@ create table payment.pm_accounts (
 	kpp varchar(18),
 	inn varchar(24),
 	account_status_id varchar(64),
-	foreign key (account_status_id) references payment.pm_account_statuses(id) 
-);
-
-create table payment.pm_clients ( 
-	client_id varchar(64) primary key,
-	name varchar(40),
-	description text 
+	foreign key (account_status_id) references payment.pm_account_statuses(id),
+	foreign key (client_id) references payment.pm_clients(client_id)
 );
 
 create table payment.pm_payments ( 

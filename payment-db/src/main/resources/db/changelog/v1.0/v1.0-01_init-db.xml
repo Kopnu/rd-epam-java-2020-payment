@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+      http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+
+    <changeSet id="2020-04-22-insert-account-statuses" author="Dmitrii_Lopatin">
+        <createTable tableName="${schema}.${prefix}_account_statuses">
+            <column name="id" type="VARCHAR(64)" />
+            <column name="status" type="VARCHAR(14)" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2020-04-22-insert-account-statuses_keys" author="Dmitrii_Lopatin">
+        <addPrimaryKey tableName="${schema}.${prefix}_account_statuses" columnNames="id" />
+    </changeSet>
+
+    <changeSet id="2020-04-22-insert-clients" author="Dmitrii_Lopatin">
+        <createTable tableName="${schema}.${prefix}_clients">
+            <column name="client_id" type="VARCHAR(64)" />
+            <column name="name" type="VARCHAR(40)" />
+            <column name="description" type="TEXT" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2020-04-22-insert-clients_keys" author="Dmitrii_Lopatin">
+        <addPrimaryKey tableName="${schema}.${prefix}_clients" columnNames="client_id" />
+    </changeSet>
+
+</databaseChangeLog>

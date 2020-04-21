@@ -24,6 +24,8 @@
         <lombok.version>1.18.12</lombok.version>
         <logback-classic.version>1.2.3</logback-classic.version>
         <janino.version>3.0.6</janino.version>
+        <postgresql.version>42.2.12</postgresql.version>
+        <liquibase.version>3.8.9</liquibase.version>
     </properties>
 
     <dependencyManagement>
