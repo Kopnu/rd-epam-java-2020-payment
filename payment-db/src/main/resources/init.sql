@@ -1,15 +1,11 @@
 drop schema if exists payment cascade;
-
 create schema payment;
 
 drop user if exists pay;
-
 create user pay password 'pay' valid until 'infinity';
 
-grant select, insert, update, delete, truncate on all tables in schema payment to pay;
-
+grant all on schema payment to pay;
 grant all privileges on all sequences in schema payment to pay;
-
 grant all privileges on all functions in schema payment to pay;
 
 create table payment.pm_account_statuses ( 
