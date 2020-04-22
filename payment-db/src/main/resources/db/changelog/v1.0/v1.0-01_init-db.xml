@@ -9,42 +9,103 @@
 
     <changeSet id="2020-04-22-add-account-statuses" author="Dmitrii_Lopatin">
         <createTable tableName="${prefix}_account_statuses">
-            <column name="id" type="VARCHAR(64)" />
-            <column name="status" type="VARCHAR(14)" />
+            <column name="id" type="VARCHAR(64)"/>
+            <column name="status" type="VARCHAR(14)"/>
         </createTable>
     </changeSet>
 
     <changeSet id="2020-04-22-add-account-statuses_keys" author="Dmitrii_Lopatin">
-        <addPrimaryKey tableName="${prefix}_account_statuses" columnNames="id" />
+        <addPrimaryKey tableName="${prefix}_account_statuses" columnNames="id"/>
     </changeSet>
 
     <changeSet id="2020-04-22-add-clients" author="Dmitrii_Lopatin">
         <createTable tableName="${prefix}_clients">
-            <column name="client_id" type="VARCHAR(64)" />
-            <column name="name" type="VARCHAR(40)" />
-            <column name="description" type="TEXT" />
+            <column name="client_id" type="VARCHAR(64)"/>
+            <column name="name" type="VARCHAR(40)"/>
+            <column name="description" type="TEXT"/>
         </createTable>
     </changeSet>
 
     <changeSet id="2020-04-22-add-clients_key" author="Dmitrii_Lopatin">
-        <addPrimaryKey tableName="${prefix}_clients" columnNames="client_id" />
+        <addPrimaryKey tableName="${prefix}_clients" columnNames="client_id"/>
     </changeSet>
 
     <changeSet id="2020-04-22-add-accounts" author="Dmitrii_Lopatin">
-        <createTable tableName="${prefix}_clients">
-            <column name="account_id" type="VARCHAR(64)" />
-            <column name="client_id" type="VARCHAR(64)" />
-            <column name="account_number" type="VARCHAR(24)" />
-            <column name="ogrn" type="VARCHAR(26)" />
-            <column name="kpp" type="VARCHAR(18)" />
-            <column name="inn" type="VARCHAR(24)" />
-            <column name="account_status_id" type="VARCHAR(64)" />
+        <createTable tableName="${prefix}_accounts">
+            <column name="account_id" type="VARCHAR(64)"/>
+            <column name="client_id" type="VARCHAR(64)"/>
+            <column name="account_number" type="VARCHAR(24)"/>
+            <column name="ogrn" type="VARCHAR(26)"/>
+            <column name="kpp" type="VARCHAR(18)"/>
+            <column name="inn" type="VARCHAR(24)"/>
+            <column name="account_status_id" type="VARCHAR(64)"/>
         </createTable>
     </changeSet>
 
     <changeSet id="2020-04-22-add-accounts_keys" author="Dmitrii_Lopatin">
-        <addPrimaryKey tableName="${prefix}_accounts" columnNames="account_id" />
-        <addForeignKey tableName="${prefix}_accounts" columnNames="account_id" />
+        <addPrimaryKey tableName="${prefix}_accounts" columnNames="account_id"/>
+        <addForeignKeyConstraint baseColumnNames="account_status_id" baseTableName="${prefix}_accounts"
+                                 constraintName="fk_account_status"
+                                 referencedColumnNames="id" referencedTableName="${prefix}_account_statuses"/>
+        <addForeignKeyConstraint baseColumnNames="client_id" baseTableName="${prefix}_accounts"
+                                 constraintName="fk_account_clients"
+                                 referencedColumnNames="client_id" referencedTableName="${prefix}_clients"/>
     </changeSet>
 
+    <changeSet id="2020-04-22-add-payments" author="Dmitrii_Lopatin">
+        <createTable tableName="${prefix}_payments">
+            <column name="payment_private_id" type="VARCHAR(64)"/>
+            <column name="payment_public_id" type="VARCHAR(64)"/>
+            <column name="client_id" type="VARCHAR(64)"/>
+            <column name="reciever_account_id" type="VARCHAR(64)"/>
+            <column name="sender_account_id" type="VARCHAR(64)"/>
+            <column name="amount" type="NUMERIC"/>
+            <column name="key" type="VARCHAR(64)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2020-04-22-add-payments_keys" author="Dmitrii_Lopatin">
+        <addPrimaryKey tableName="${prefix}_payments" columnNames="payment_private_id"/>
+        <addForeignKeyConstraint baseColumnNames="client_id" baseTableName="${prefix}_payments"
+                                 constraintName="fk_payments_clients"
+                                 referencedColumnNames="client_id" referencedTableName="${prefix}_clients"/>
+        <addForeignKeyConstraint baseColumnNames="reciever_account_id" baseTableName="${prefix}_payments"
+                                 constraintName="fk_reciever_account"
+                                 referencedColumnNames="account_id" referencedTableName="${prefix}_accounts"/>
+        <addForeignKeyConstraint baseColumnNames="sender_account_id" baseTableName="${prefix}_payments"
+                                 constraintName="fk_sender_account"
+                                 referencedColumnNames="account_id" referencedTableName="${prefix}_accounts"/>
+    </changeSet>
+
+    <changeSet id="2020-04-22-add-accept_statuses" author="Dmitrii_Lopatin">
+        <createTable tableName="${prefix}_accept_statuses">
+            <column name="id" type="VARCHAR(64)"/>
+            <column name="status" type="VARCHAR(36)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2020-04-22-add-accept_statuses_key" author="Dmitrii_Lopatin">
+        <addPrimaryKey tableName="${prefix}_accept_statuses" columnNames="id"/>
+    </changeSet>
+
+    <changeSet id="2020-04-22-add-accepts" author="Dmitrii_Lopatin">
+        <createTable tableName="${prefix}_accepts">
+            <column name="accept_id" type="VARCHAR(64)"/>
+            <column name="payment_private_id" type="VARCHAR(64)"/>
+            <column name="client_callback_url" type="VARCHAR(400)"/>
+            <column name="client_payment_url" type="VARCHAR(400)"/>
+            <column name="key" type="VARCHAR(64)"/>
+            <column name="accept_status_id" type="VARCHAR(64)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2020-04-22-add-accepts_keys" author="Dmitrii_Lopatin">
+        <addPrimaryKey tableName="${prefix}_accepts" columnNames="accept_id"/>
+        <addForeignKeyConstraint baseColumnNames="payment_private_id" baseTableName="${prefix}_accepts"
+                                 constraintName="fk_accept_payments"
+                                 referencedColumnNames="payment_private_id" referencedTableName="${prefix}_payments"/>
+        <addForeignKeyConstraint baseColumnNames="accept_status_id" baseTableName="${prefix}_accepts"
+                                 constraintName="fk_accept_statuses"
+                                 referencedColumnNames="id" referencedTableName="${prefix}_accept_statuses"/>
+    </changeSet>
 </databaseChangeLog>
