@@ -2,13 +2,13 @@ insert into payment.pm_account_statuses (id, status) values
 	('1','Активен'),
 	('2','Закрыт');
 
-insert into payment.pm_accept_statuses (id, status, description) values
+insert into payment.pm_accept_statuses (id, status) values
 	('1','Принят в обработку'),
 	('2','Выставлен'),
 	('3','Оплачен'),
 	('4','Ошибка');
 
-insert into payment.pm_clients (id, status) values
+insert into payment.pm_clients (client_id, status, description) values
 	('1', 'Dzimitry', 'самобытно'),
 	('2', 'Вася', 'не самобытно')
 
