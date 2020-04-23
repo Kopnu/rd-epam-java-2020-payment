@@ -8,7 +8,7 @@ insert into payment.pm_accept_statuses (id, status) values
 	('3','Оплачен'),
 	('4','Ошибка');
 
-insert into payment.pm_clients (client_id, status, description) values
+insert into payment.pm_clients (client_id, name, description) values
 	('1', 'Dzimitry', 'самобытно'),
 	('2', 'Вася', 'не самобытно')
 
