@@ -24,6 +24,7 @@
         <logback-classic.version>1.2.3</logback-classic.version>
         <janino.version>3.0.6</janino.version>
         <hibernate.version>5.4.14.Final</hibernate.version>
+        <postgresql.version>42.2.4</postgresql.version>
     </properties>
 
     <dependencyManagement>
@@ -53,6 +54,11 @@
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-entitymanager</artifactId>
                 <version>${hibernate.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${postgresql.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
