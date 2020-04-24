@@ -23,8 +23,8 @@
         <lombok.version>1.18.12</lombok.version>
         <logback-classic.version>1.2.3</logback-classic.version>
         <janino.version>3.0.6</janino.version>
-        <jdbs-driver.version>42.2.12</jdbs-driver.version>
-        <liquibase-core.version>3.8.9</liquibase-core.version>
+        <postgresql.version>42.2.12</postgresql.version>
+        <liquibase.version>3.8.9</liquibase.version>
     </properties>
 
     <dependencyManagement>
@@ -48,12 +48,12 @@
             <dependency>
                 <groupId>org.postgresql</groupId>
                 <artifactId>postgresql</artifactId>
-                <version>${jdbs-driver.version}</version>
+                <version>${postgresql.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-core</artifactId>
-                <version>${liquibase-core.version}</version>
+                <version>${liquibase.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
