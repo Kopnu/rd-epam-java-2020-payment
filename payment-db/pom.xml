@@ -14,7 +14,7 @@
     <properties>
         <liquibase.host>localhost</liquibase.host>
         <liquibase.port>5432</liquibase.port>
-        <liquibase.db></liquibase.db>
+        <liquibase.db>courses</liquibase.db>
         <liquibase.schema>payment</liquibase.schema>
         <liquibase.user>pay</liquibase.user>
         <liquibase.password>pay</liquibase.password>
