@@ -12,6 +12,20 @@
     <artifactId>payment-impl</artifactId>
 
     <dependencies>
+        <!--JPA/Database-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+        <!--Utils-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -24,6 +38,12 @@
             <groupId>org.codehaus.janino</groupId>
             <artifactId>janino</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.epam.rd</groupId>
+            <artifactId>payment-domain</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+
     </dependencies>
 
 </project>
