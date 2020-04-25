@@ -41,7 +41,7 @@
                 <configuration>
                     <outputFileEncoding>UTF-8</outputFileEncoding>
                     <driver>org.postgresql.Driver</driver>
-                    <url>url = jdbc:postgresql://${liquibase.host}:${liquibase.port}/${liquibase.db}?currentSchema=${liquibase.schema}</url>
+                    <url>jdbc:postgresql://${liquibase.host}:${liquibase.port}/${liquibase.db}?currentSchema=${liquibase.schema}</url>
                     <username>${liquibase.user}</username>
                     <password>${liquibase.password}</password>
                     <changeLogFile>${liquibase.changelogfile}</changeLogFile>

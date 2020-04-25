@@ -6,6 +6,8 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
     <property name="prefix" value="pm"/>
 
+<!--    <property name="schema" value="payment"/>-->
+
     <include file="changelog/v1.0/v1.0-01_init-db.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

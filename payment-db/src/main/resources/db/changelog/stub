@@ -76,3 +76,546 @@ a-2020-payment\pom.xml, line 71, column 21
     схема добавилась, пустая без таблиц
     запуск mvn clean install liquibase::update
     нифига, все тоже самое
+n: (дать пользователю права(через sql или бобра) на действия со схемой)
+D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db>mvn clean install liquibase::update
+[INFO] Scanning for projects...
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.epam.rd:payment-db:jar:0.0.1
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ com.epam.rd:rd-epam-java-2020-payment:0.0.1, D:\Users\misas\IdeaProjects\rd-epam
+-java-2020-payment\pom.xml, line 63, column 21
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-site-plugin is missing. @ com.epam.rd:rd-epam-java-2020-payment:0.0.1, D:\Users\misas\IdeaProjects\rd-epam-jav
+a-2020-payment\pom.xml, line 71, column 21
+[WARNING]
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING]
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING]
+[INFO]
+[INFO] -----------------------< com.epam.rd:payment-db >-----------------------
+[INFO] Building payment-db 0.0.1
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ payment-db ---
+[INFO] Deleting D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\target
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ payment-db ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 6 resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ payment-db ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ payment-db ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\src\test\resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ payment-db ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ payment-db ---
+[INFO] No tests to run.
+[INFO]
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ payment-db ---
+[INFO] Building jar: D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\target\payment-db-0.0.1.jar
+[INFO]
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ payment-db ---
+[INFO] Installing D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\target\payment-db-0.0.1.jar to C:\Users\misas\.m2\repository\com\epam\rd\payment-db\0.0.1\payment-db-0.
+0.1.jar
+[INFO] Installing D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\pom.xml to C:\Users\misas\.m2\repository\com\epam\rd\payment-db\0.0.1\payment-db-0.0.1.pom
+[INFO]
+[INFO] --- liquibase-maven-plugin:3.8.9:update (default-cli) @ payment-db ---
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO]
+[INFO] Liquibase Community 3.8.9 by Datical
+[INFO] Starting Liquibase at Сб, 25 апр 2020 17:27:00 GMT+04:00 (version 3.8.9 #73 built at Mon Apr 06 09:32:58 UTC 2020)
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.766 s
+[INFO] Finished at: 2020-04-25T17:27:00+04:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.liquibase:liquibase-maven-plugin:3.8.9:update (default-cli) on project payment-db:
+[ERROR] Error setting up or running Liquibase:
+[ERROR] liquibase.exception.DatabaseException: liquibase.exception.DatabaseException: Connection could not be created to url = jdbc:postgresql://localhost:5432/courses?currentSchema=paym
+ent with driver org.postgresql.Driver.  Possibly the wrong driver for the given database URL
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+
+D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db>mvn clean install liquibase::update
+[INFO] Scanning for projects...
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.epam.rd:payment-db:jar:0.0.1
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ com.epam.rd:rd-epam-java-2020-payment:0.0.1, D:\Users\misas\IdeaProjects\rd-epam
+-java-2020-payment\pom.xml, line 63, column 21
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-site-plugin is missing. @ com.epam.rd:rd-epam-java-2020-payment:0.0.1, D:\Users\misas\IdeaProjects\rd-epam-jav
+a-2020-payment\pom.xml, line 71, column 21
+[WARNING]
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING]
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING]
+[INFO]
+[INFO] -----------------------< com.epam.rd:payment-db >-----------------------
+[INFO] Building payment-db 0.0.1
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ payment-db ---
+[INFO] Deleting D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\target
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ payment-db ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 6 resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ payment-db ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ payment-db ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\src\test\resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ payment-db ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ payment-db ---
+[INFO] No tests to run.
+[INFO]
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ payment-db ---
+[INFO] Building jar: D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\target\payment-db-0.0.1.jar
+[INFO]
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ payment-db ---
+[INFO] Installing D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\target\payment-db-0.0.1.jar to C:\Users\misas\.m2\repository\com\epam\rd\payment-db\0.0.1\payment-db-0.
+0.1.jar
+[INFO] Installing D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\pom.xml to C:\Users\misas\.m2\repository\com\epam\rd\payment-db\0.0.1\payment-db-0.0.1.pom
+[INFO]
+[INFO] --- liquibase-maven-plugin:3.8.9:update (default-cli) @ payment-db ---
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO]
+[INFO] Liquibase Community 3.8.9 by Datical
+[INFO] Starting Liquibase at Сб, 25 апр 2020 18:02:39 GMT+04:00 (version 3.8.9 #73 built at Mon Apr 06 09:32:58 UTC 2020)
+[INFO] Executing on Database: jdbc:postgresql://localhost:5432/courses?currentSchema=payment
+[INFO] SELECT COUNT(*) FROM databasechangeloglock
+[INFO] CREATE TABLE databasechangeloglock (ID INTEGER NOT NULL, LOCKED BOOLEAN NOT NULL, LOCKGRANTED TIMESTAMP WITHOUT TIME ZONE, LOCKEDBY VARCHAR(255), CONSTRAINT DATABASECHANGELOGLOCK_
+PKEY PRIMARY KEY (ID))
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.795 s
+[INFO] Finished at: 2020-04-25T18:02:40+04:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.liquibase:liquibase-maven-plugin:3.8.9:update (default-cli) on project payment-db:
+[ERROR] Error setting up or running Liquibase:
+[ERROR] liquibase.exception.DatabaseException: ОШИБКА: схема для создания объектов не выбрана
+[ERROR]   Позиция: 14 [Failed SQL: (0) CREATE TABLE databasechangeloglock (ID INTEGER NOT NULL, LOCKED BOOLEAN NOT NULL, LOCKGRANTED TIMESTAMP WITHOUT TIME ZONE, LOCKEDBY VARCHAR(255), C
+ONSTRAINT DATABASECHANGELOGLOCK_PKEY PRIMARY KEY (ID))]
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+
+D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db>mvn clean install liquibase::update
+[INFO] Scanning for projects...
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.epam.rd:payment-db:jar:0.0.1
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ com.epam.rd:rd-epam-java-2020-payment:0.0.1, D:\Users\misas\IdeaProjects\rd-epam
+-java-2020-payment\pom.xml, line 63, column 21
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-site-plugin is missing. @ com.epam.rd:rd-epam-java-2020-payment:0.0.1, D:\Users\misas\IdeaProjects\rd-epam-jav
+a-2020-payment\pom.xml, line 71, column 21
+[WARNING]
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING]
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING]
+[INFO]
+[INFO] -----------------------< com.epam.rd:payment-db >-----------------------
+[INFO] Building payment-db 0.0.1
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ payment-db ---
+[INFO] Deleting D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\target
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ payment-db ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 6 resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ payment-db ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ payment-db ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\src\test\resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ payment-db ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ payment-db ---
+[INFO] No tests to run.
+[INFO]
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ payment-db ---
+[INFO] Building jar: D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\target\payment-db-0.0.1.jar
+[INFO]
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ payment-db ---
+[INFO] Installing D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\target\payment-db-0.0.1.jar to C:\Users\misas\.m2\repository\com\epam\rd\payment-db\0.0.1\payment-db-0.
+0.1.jar
+[INFO] Installing D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\pom.xml to C:\Users\misas\.m2\repository\com\epam\rd\payment-db\0.0.1\payment-db-0.0.1.pom
+[INFO]
+[INFO] --- liquibase-maven-plugin:3.8.9:update (default-cli) @ payment-db ---
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO]
+[INFO] Liquibase Community 3.8.9 by Datical
+[INFO] Starting Liquibase at Сб, 25 апр 2020 18:21:32 GMT+04:00 (version 3.8.9 #73 built at Mon Apr 06 09:32:58 UTC 2020)
+[INFO] Executing on Database: jdbc:postgresql://localhost:5432/courses?currentSchema=payment
+[INFO] SELECT COUNT(*) FROM databasechangeloglock
+[INFO] CREATE TABLE databasechangeloglock (ID INTEGER NOT NULL, LOCKED BOOLEAN NOT NULL, LOCKGRANTED TIMESTAMP WITHOUT TIME ZONE, LOCKEDBY VARCHAR(255), CONSTRAINT DATABASECHANGELOGLOCK_
+PKEY PRIMARY KEY (ID))
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.984 s
+[INFO] Finished at: 2020-04-25T18:21:33+04:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.liquibase:liquibase-maven-plugin:3.8.9:update (default-cli) on project payment-db:
+[ERROR] Error setting up or running Liquibase:
+[ERROR] liquibase.exception.DatabaseException: ОШИБКА: схема для создания объектов не выбрана
+[ERROR]   Позиция: 14 [Failed SQL: (0) CREATE TABLE databasechangeloglock (ID INTEGER NOT NULL, LOCKED BOOLEAN NOT NULL, LOCKGRANTED TIMESTAMP WITHOUT TIME ZONE, LOCKEDBY VARCHAR(255), C
+ONSTRAINT DATABASECHANGELOGLOCK_PKEY PRIMARY KEY (ID))]
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+
+D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db>mvn clean install liquibase::update
+[INFO] Scanning for projects...
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.epam.rd:payment-db:jar:0.0.1
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ com.epam.rd:rd-epam-java-2020-payment:0.0.1, D:\Users\misas\IdeaProjects\rd-epam
+-java-2020-payment\pom.xml, line 63, column 21
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-site-plugin is missing. @ com.epam.rd:rd-epam-java-2020-payment:0.0.1, D:\Users\misas\IdeaProjects\rd-epam-jav
+a-2020-payment\pom.xml, line 71, column 21
+[WARNING]
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING]
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING]
+[INFO]
+[INFO] -----------------------< com.epam.rd:payment-db >-----------------------
+[INFO] Building payment-db 0.0.1
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ payment-db ---
+[INFO] Deleting D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\target
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ payment-db ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 6 resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ payment-db ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ payment-db ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\src\test\resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ payment-db ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ payment-db ---
+[INFO] No tests to run.
+[INFO]
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ payment-db ---
+[INFO] Building jar: D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\target\payment-db-0.0.1.jar
+[INFO]
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ payment-db ---
+[INFO] Installing D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\target\payment-db-0.0.1.jar to C:\Users\misas\.m2\repository\com\epam\rd\payment-db\0.0.1\payment-db-0.
+0.1.jar
+[INFO] Installing D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\pom.xml to C:\Users\misas\.m2\repository\com\epam\rd\payment-db\0.0.1\payment-db-0.0.1.pom
+[INFO]
+[INFO] --- liquibase-maven-plugin:3.8.9:update (default-cli) @ payment-db ---
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO]
+[INFO] Liquibase Community 3.8.9 by Datical
+[INFO] Starting Liquibase at Сб, 25 апр 2020 18:49:54 GMT+04:00 (version 3.8.9 #73 built at Mon Apr 06 09:32:58 UTC 2020)
+[INFO] Executing on Database: jdbc:postgresql://localhost:5432/courses?currentSchema=payment
+[INFO] SELECT COUNT(*) FROM databasechangeloglock
+[INFO] CREATE TABLE databasechangeloglock (ID INTEGER NOT NULL, LOCKED BOOLEAN NOT NULL, LOCKGRANTED TIMESTAMP WITHOUT TIME ZONE, LOCKEDBY VARCHAR(255), CONSTRAINT DATABASECHANGELOGLOCK_
+PKEY PRIMARY KEY (ID))
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.211 s
+[INFO] Finished at: 2020-04-25T18:49:55+04:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.liquibase:liquibase-maven-plugin:3.8.9:update (default-cli) on project payment-db:
+[ERROR] Error setting up or running Liquibase:
+[ERROR] liquibase.exception.DatabaseException: ОШИБКА: схема для создания объектов не выбрана
+[ERROR]   Позиция: 14 [Failed SQL: (0) CREATE TABLE databasechangeloglock (ID INTEGER NOT NULL, LOCKED BOOLEAN NOT NULL, LOCKGRANTED TIMESTAMP WITHOUT TIME ZONE, LOCKEDBY VARCHAR(255), C
+ONSTRAINT DATABASECHANGELOGLOCK_PKEY PRIMARY KEY (ID))]
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+
+D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db>mvn clean install liquibase::update
+[INFO] Scanning for projects...
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.epam.rd:payment-db:jar:0.0.1
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ com.epam.rd:rd-epam-java-2020-payment:0.0.1, D:\Users\misas\IdeaProjects\rd-epam
+-java-2020-payment\pom.xml, line 63, column 21
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-site-plugin is missing. @ com.epam.rd:rd-epam-java-2020-payment:0.0.1, D:\Users\misas\IdeaProjects\rd-epam-jav
+a-2020-payment\pom.xml, line 71, column 21
+[WARNING]
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING]
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING]
+[INFO]
+[INFO] -----------------------< com.epam.rd:payment-db >-----------------------
+[INFO] Building payment-db 0.0.1
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ payment-db ---
+[INFO] Deleting D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\target
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ payment-db ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 6 resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ payment-db ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ payment-db ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\src\test\resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ payment-db ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ payment-db ---
+[INFO] No tests to run.
+[INFO]
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ payment-db ---
+[INFO] Building jar: D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\target\payment-db-0.0.1.jar
+[INFO]
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ payment-db ---
+[INFO] Installing D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\target\payment-db-0.0.1.jar to C:\Users\misas\.m2\repository\com\epam\rd\payment-db\0.0.1\payment-db-0.
+0.1.jar
+[INFO] Installing D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\pom.xml to C:\Users\misas\.m2\repository\com\epam\rd\payment-db\0.0.1\payment-db-0.0.1.pom
+[INFO]
+[INFO] --- liquibase-maven-plugin:3.8.9:update (default-cli) @ payment-db ---
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO]
+[INFO] Liquibase Community 3.8.9 by Datical
+[INFO] Starting Liquibase at Сб, 25 апр 2020 18:53:15 GMT+04:00 (version 3.8.9 #73 built at Mon Apr 06 09:32:58 UTC 2020)
+[INFO] Executing on Database: jdbc:postgresql://localhost:5432/courses?currentSchema=payment
+[INFO] SELECT COUNT(*) FROM databasechangeloglock
+[INFO] CREATE TABLE databasechangeloglock (ID INTEGER NOT NULL, LOCKED BOOLEAN NOT NULL, LOCKGRANTED TIMESTAMP WITHOUT TIME ZONE, LOCKEDBY VARCHAR(255), CONSTRAINT DATABASECHANGELOGLOCK_
+PKEY PRIMARY KEY (ID))
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  7.158 s
+[INFO] Finished at: 2020-04-25T18:53:16+04:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.liquibase:liquibase-maven-plugin:3.8.9:update (default-cli) on project payment-db:
+[ERROR] Error setting up or running Liquibase:
+[ERROR] liquibase.exception.DatabaseException: ОШИБКА: схема для создания объектов не выбрана
+[ERROR]   Позиция: 14 [Failed SQL: (0) CREATE TABLE databasechangeloglock (ID INTEGER NOT NULL, LOCKED BOOLEAN NOT NULL, LOCKGRANTED TIMESTAMP WITHOUT TIME ZONE, LOCKEDBY VARCHAR(255), C
+ONSTRAINT DATABASECHANGELOGLOCK_PKEY PRIMARY KEY (ID))]
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+
+D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db>mvn clean install liquibase::update
+[INFO] Scanning for projects...
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.epam.rd:payment-db:jar:0.0.1
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ com.epam.rd:rd-epam-java-2020-payment:0.0.1, D:\Users\misas\IdeaProjects\rd-epam
+-java-2020-payment\pom.xml, line 63, column 21
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-site-plugin is missing. @ com.epam.rd:rd-epam-java-2020-payment:0.0.1, D:\Users\misas\IdeaProjects\rd-epam-jav
+a-2020-payment\pom.xml, line 71, column 21
+[WARNING]
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING]
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING]
+[INFO]
+[INFO] -----------------------< com.epam.rd:payment-db >-----------------------
+[INFO] Building payment-db 0.0.1
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ payment-db ---
+[INFO] Deleting D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\target
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ payment-db ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 6 resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ payment-db ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ payment-db ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\src\test\resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ payment-db ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ payment-db ---
+[INFO] No tests to run.
+[INFO]
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ payment-db ---
+[INFO] Building jar: D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\target\payment-db-0.0.1.jar
+[INFO]
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ payment-db ---
+[INFO] Installing D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\target\payment-db-0.0.1.jar to C:\Users\misas\.m2\repository\com\epam\rd\payment-db\0.0.1\payment-db-0.
+0.1.jar
+[INFO] Installing D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\pom.xml to C:\Users\misas\.m2\repository\com\epam\rd\payment-db\0.0.1\payment-db-0.0.1.pom
+[INFO]
+[INFO] --- liquibase-maven-plugin:3.8.9:update (default-cli) @ payment-db ---
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO]
+[INFO] Liquibase Community 3.8.9 by Datical
+[INFO] Starting Liquibase at Сб, 25 апр 2020 19:03:30 GMT+04:00 (version 3.8.9 #73 built at Mon Apr 06 09:32:58 UTC 2020)
+[INFO] Executing on Database: jdbc:postgresql://localhost:5432/courses?currentSchema=payment
+[INFO] SELECT COUNT(*) FROM databasechangeloglock
+[INFO] CREATE TABLE databasechangeloglock (ID INTEGER NOT NULL, LOCKED BOOLEAN NOT NULL, LOCKGRANTED TIMESTAMP WITHOUT TIME ZONE, LOCKEDBY VARCHAR(255), CONSTRAINT DATABASECHANGELOGLOCK_
+PKEY PRIMARY KEY (ID))
+[INFO] SELECT COUNT(*) FROM databasechangeloglock
+[INFO] DELETE FROM databasechangeloglock
+[INFO] INSERT INTO databasechangeloglock (ID, LOCKED) VALUES (1, FALSE)
+[INFO] SELECT LOCKED FROM databasechangeloglock WHERE ID=1
+[INFO] Successfully acquired change log lock
+[INFO] Creating database history table with name: databasechangelog
+[INFO] CREATE TABLE databasechangelog (ID VARCHAR(255) NOT NULL, AUTHOR VARCHAR(255) NOT NULL, FILENAME VARCHAR(255) NOT NULL, DATEEXECUTED TIMESTAMP WITHOUT TIME ZONE NOT NULL, ORDEREXE
+CUTED INTEGER NOT NULL, EXECTYPE VARCHAR(10) NOT NULL, MD5SUM VARCHAR(35), DESCRIPTION VARCHAR(255), COMMENTS VARCHAR(255), TAG VARCHAR(255), LIQUIBASE VARCHAR(20), CONTEXTS VARCHAR(255)
+, LABELS VARCHAR(255), DEPLOYMENT_ID VARCHAR(10))
+[INFO] SELECT COUNT(*) FROM databasechangelog
+[INFO] Reading from databasechangelog
+[INFO] SELECT * FROM databasechangelog ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+[INFO] SELECT COUNT(*) FROM databasechangeloglock
+[INFO] CREATE TABLE pm_account_statuses (id VARCHAR(64), status VARCHAR(14))
+[INFO] Table pm_account_statuses created
+[INFO] ChangeSet src/main/resources/db/changelog/v1.0/v1.0-01_init-db.xml::2020-04-25-create-table-account-statuses::Mihail_Sevryugin ran successfully in 16ms
+[INFO] SELECT MAX(ORDEREXECUTED) FROM databasechangelog
+[INFO] INSERT INTO databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('202
+0-04-25-create-table-account-statuses', 'Mihail_Sevryugin', 'src/main/resources/db/changelog/v1.0/v1.0-01_init-db.xml', NOW(), 1, '8:dad0cd5bf188a685b9ac073217086aed', 'createTable table
+Name=pm_account_statuses', '', 'EXECUTED', NULL, NULL, '3.8.9', '7827015076')
+[INFO] ALTER TABLE pm_account_statuses ADD PRIMARY KEY (id)
+[INFO] Primary key added to pm_account_statuses (id)
+[INFO] ChangeSet src/main/resources/db/changelog/v1.0/v1.0-01_init-db.xml::2020-04-25-add-account-statuses_keys::Mihail_Sevryugin ran successfully in 58ms
+[INFO] INSERT INTO databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('202
+0-04-25-add-account-statuses_keys', 'Mihail_Sevryugin', 'src/main/resources/db/changelog/v1.0/v1.0-01_init-db.xml', NOW(), 2, '8:3bc2f605ef77c015506ea0237eebd4f3', 'addPrimaryKey tableNa
+me=pm_account_statuses', '', 'EXECUTED', NULL, NULL, '3.8.9', '7827015076')
+[INFO] CREATE TABLE pm_clients (client_id VARCHAR(64), name VARCHAR(40), description TEXT)
+[INFO] Table pm_clients created
+[INFO] ChangeSet src/main/resources/db/changelog/v1.0/v1.0-01_init-db.xml::2020-04-25-create-table-clients::Mihail_Sevryugin ran successfully in 67ms
+[INFO] INSERT INTO databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('202
+0-04-25-create-table-clients', 'Mihail_Sevryugin', 'src/main/resources/db/changelog/v1.0/v1.0-01_init-db.xml', NOW(), 3, '8:d5157260bff1fbbe982a6ef2add2d0d7', 'createTable tableName=pm_c
+lients', '', 'EXECUTED', NULL, NULL, '3.8.9', '7827015076')
+[INFO] ALTER TABLE pm_clients ADD PRIMARY KEY (client_id)
+[INFO] Primary key added to pm_clients (client_id)
+[INFO] ChangeSet src/main/resources/db/changelog/v1.0/v1.0-01_init-db.xml::2020-04-25-add-clients_key::Mihail_Sevryugin ran successfully in 56ms
+[INFO] INSERT INTO databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('202
+0-04-25-add-clients_key', 'Mihail_Sevryugin', 'src/main/resources/db/changelog/v1.0/v1.0-01_init-db.xml', NOW(), 4, '8:31ec523590d9e622bf6a92312b272f03', 'addPrimaryKey tableName=pm_clie
+nts', '', 'EXECUTED', NULL, NULL, '3.8.9', '7827015076')
+[INFO] CREATE TABLE pm_accounts (account_id VARCHAR(64), client_id VARCHAR(64), account_number VARCHAR(24), ogrn VARCHAR(26), kpp VARCHAR(18), inn VARCHAR(24), account_status_id VARCHAR(
+64))
+[INFO] Table pm_accounts created
+[INFO] ChangeSet src/main/resources/db/changelog/v1.0/v1.0-01_init-db.xml::2020-04-25-create-table-accounts::Mihail_Sevryugin ran successfully in 14ms
+[INFO] INSERT INTO databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('202
+0-04-25-create-table-accounts', 'Mihail_Sevryugin', 'src/main/resources/db/changelog/v1.0/v1.0-01_init-db.xml', NOW(), 5, '8:e33d4577df2833fea457df2239ccb207', 'createTable tableName=pm_
+accounts', '', 'EXECUTED', NULL, NULL, '3.8.9', '7827015076')
+[INFO] ALTER TABLE pm_accounts ADD PRIMARY KEY (account_id)
+[INFO] Primary key added to pm_accounts (account_id)
+[INFO] ALTER TABLE pm_accounts ADD CONSTRAINT fk_account_status FOREIGN KEY (account_status_id) REFERENCES pm_account_statuses (id)
+[INFO] Foreign key constraint added to pm_accounts (account_status_id)
+[INFO] ALTER TABLE pm_accounts ADD CONSTRAINT fk_account_clients FOREIGN KEY (client_id) REFERENCES pm_clients (client_id)
+[INFO] Foreign key constraint added to pm_accounts (client_id)
+[INFO] ChangeSet src/main/resources/db/changelog/v1.0/v1.0-01_init-db.xml::2020-04-25-add-accounts_keys::Mihail_Sevryugin ran successfully in 181ms
+[INFO] INSERT INTO databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('202
+0-04-25-add-accounts_keys', 'Mihail_Sevryugin', 'src/main/resources/db/changelog/v1.0/v1.0-01_init-db.xml', NOW(), 6, '8:ba74737f1a8d6fcc3b852de100cb6639', 'addPrimaryKey tableName=pm_ac
+counts; addForeignKeyConstraint baseTableName=pm_accounts, constraintName=fk_account_status, referencedTableName=pm_account_statuses; addForeignKeyConstraint baseTableName=pm_accounts, c
+onstraintName=fk_account_clients...', '', 'EXECUTED', NULL, NULL, '3.8.9', '7827015076')
+[INFO] CREATE TABLE pm_payments (payment_private_id VARCHAR(64), payment_public_id VARCHAR(64), client_id VARCHAR(64), reciever_account_id VARCHAR(64), sender_account_id VARCHAR(64), amo
+unt numeric, key VARCHAR(64))
+[INFO] Table pm_payments created
+[INFO] ChangeSet src/main/resources/db/changelog/v1.0/v1.0-01_init-db.xml::2020-04-25-create-table-payments::Mihail_Sevryugin ran successfully in 66ms
+[INFO] INSERT INTO databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('202
+0-04-25-create-table-payments', 'Mihail_Sevryugin', 'src/main/resources/db/changelog/v1.0/v1.0-01_init-db.xml', NOW(), 7, '8:83b7121371ed9d2dd7a464a265a4f715', 'createTable tableName=pm_
+payments', '', 'EXECUTED', NULL, NULL, '3.8.9', '7827015076')
+[INFO] ALTER TABLE pm_payments ADD PRIMARY KEY (payment_private_id)
+[INFO] Primary key added to pm_payments (payment_private_id)
+[INFO] ALTER TABLE pm_payments ADD CONSTRAINT fk_payments_clients FOREIGN KEY (client_id) REFERENCES pm_clients (client_id)
+[INFO] Foreign key constraint added to pm_payments (client_id)
+[INFO] ALTER TABLE pm_payments ADD CONSTRAINT fk_reciever_account FOREIGN KEY (reciever_account_id) REFERENCES pm_accounts (account_id)
+[INFO] Foreign key constraint added to pm_payments (reciever_account_id)
+[INFO] ALTER TABLE pm_payments ADD CONSTRAINT fk_sender_account FOREIGN KEY (sender_account_id) REFERENCES pm_accounts (account_id)
+[INFO] Foreign key constraint added to pm_payments (sender_account_id)
+[INFO] ChangeSet src/main/resources/db/changelog/v1.0/v1.0-01_init-db.xml::2020-04-25-add-payments_keys::Mihail_Sevryugin ran successfully in 116ms
+[INFO] INSERT INTO databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('202
+0-04-25-add-payments_keys', 'Mihail_Sevryugin', 'src/main/resources/db/changelog/v1.0/v1.0-01_init-db.xml', NOW(), 8, '8:7fd345e7ea78aaa8d58ec39ed7a253f8', 'addPrimaryKey tableName=pm_pa
+yments; addForeignKeyConstraint baseTableName=pm_payments, constraintName=fk_payments_clients, referencedTableName=pm_clients; addForeignKeyConstraint baseTableName=pm_payments, constrai
+ntName=fk_reciever_account, refe...', '', 'EXECUTED', NULL, NULL, '3.8.9', '7827015076')
+[INFO] CREATE TABLE pm_accept_statuses (id VARCHAR(64), status VARCHAR(36))
+[INFO] Table pm_accept_statuses created
+[INFO] ChangeSet src/main/resources/db/changelog/v1.0/v1.0-01_init-db.xml::2020-04-25-create-table-accept_statuses::Mihail_Sevryugin ran successfully in 8ms
+[INFO] INSERT INTO databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('202
+0-04-25-create-table-accept_statuses', 'Mihail_Sevryugin', 'src/main/resources/db/changelog/v1.0/v1.0-01_init-db.xml', NOW(), 9, '8:1f6a0b365bf86bb0980483fb43aa880c', 'createTable tableN
+ame=pm_accept_statuses', '', 'EXECUTED', NULL, NULL, '3.8.9', '7827015076')
+[INFO] ALTER TABLE pm_accept_statuses ADD PRIMARY KEY (id)
+[INFO] Primary key added to pm_accept_statuses (id)
+[INFO] ChangeSet src/main/resources/db/changelog/v1.0/v1.0-01_init-db.xml::2020-04-25-add-accept_statuses_key::Mihail_Sevryugin ran successfully in 60ms
+[INFO] INSERT INTO databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('202
+0-04-25-add-accept_statuses_key', 'Mihail_Sevryugin', 'src/main/resources/db/changelog/v1.0/v1.0-01_init-db.xml', NOW(), 10, '8:ef32130d5c77b5af470c8f0d144ab040', 'addPrimaryKey tableNam
+e=pm_accept_statuses', '', 'EXECUTED', NULL, NULL, '3.8.9', '7827015076')
+[INFO] CREATE TABLE pm_accepts (accept_id VARCHAR(64), payment_private_id VARCHAR(64), client_callback_url VARCHAR(400), client_payment_url VARCHAR(400), key VARCHAR(64), accept_status_i
+d VARCHAR(64))
+[INFO] Table pm_accepts created
+[INFO] ChangeSet src/main/resources/db/changelog/v1.0/v1.0-01_init-db.xml::2020-04-25-create-table-accepts::Mihail_Sevryugin ran successfully in 87ms
+[INFO] INSERT INTO databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('202
+0-04-25-create-table-accepts', 'Mihail_Sevryugin', 'src/main/resources/db/changelog/v1.0/v1.0-01_init-db.xml', NOW(), 11, '8:a40e0692e8e262a7be547c4059006c9b', 'createTable tableName=pm_
+accepts', '', 'EXECUTED', NULL, NULL, '3.8.9', '7827015076')
+[INFO] ALTER TABLE pm_accepts ADD PRIMARY KEY (accept_id)
+[INFO] Primary key added to pm_accepts (accept_id)
+[INFO] ALTER TABLE pm_accepts ADD CONSTRAINT fk_accept_payments FOREIGN KEY (payment_private_id) REFERENCES pm_payments (payment_private_id)
+[INFO] Foreign key constraint added to pm_accepts (payment_private_id)
+[INFO] ALTER TABLE pm_accepts ADD CONSTRAINT fk_accept_statuses FOREIGN KEY (accept_status_id) REFERENCES pm_accept_statuses (id)
+[INFO] Foreign key constraint added to pm_accepts (accept_status_id)
+[INFO] ChangeSet src/main/resources/db/changelog/v1.0/v1.0-01_init-db.xml::2020-04-25-add-accepts_keys::Mihail_Sevryugin ran successfully in 83ms
+[INFO] INSERT INTO databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('202
+0-04-25-add-accepts_keys', 'Mihail_Sevryugin', 'src/main/resources/db/changelog/v1.0/v1.0-01_init-db.xml', NOW(), 12, '8:6bbce7b20041564470148ee6e555a989', 'addPrimaryKey tableName=pm_ac
+cepts; addForeignKeyConstraint baseTableName=pm_accepts, constraintName=fk_accept_payments, referencedTableName=pm_payments; addForeignKeyConstraint baseTableName=pm_accepts, constraintN
+ame=fk_accept_statuses, referenc...', '', 'EXECUTED', NULL, NULL, '3.8.9', '7827015076')
+[INFO] Successfully released change log lock
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  11.832 s
+[INFO] Finished at: 2020-04-25T19:03:36+04:00
+[INFO] ------------------------------------------------------------------------
+
