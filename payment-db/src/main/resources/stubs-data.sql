@@ -4,7 +4,7 @@ insert into payment.pm_clients (client_id, name, description) values
 
 insert into payment.pm_account_statuses (id, status) values
    	('1','Активен'),
-    ('2','Закрыт');
+    	('2','Закрыт');
 
 insert into payment.pm_accounts (account_id, client_id, account_number, ogrn, kpp, inn, account_status_id) values
 	('1','1','898989898912','12345678901238','098765432','123456789012','1'),
