@@ -1,3 +1,7 @@
+insert into payment.pm_clients (client_id, name, description) values
+	('1','Гоша', 'Описание Гоши'),
+	('2','Антон','Описание Антона');
+
 insert into payment.pm_account_statuses (id, status) values
 	('1','Активен'),
 	('2','Закрыт');
@@ -5,10 +9,6 @@ insert into payment.pm_account_statuses (id, status) values
 insert into payment.pm_accounts (account_id, client_id, account_number, ogrn, kpp, inn, account_status_id) values
 	('1','1','898989898912','12345678901238','098765432','123456789012','1'),
 	('2','1','898989898923','12345678902349','087654321','123456789123','2');
-
-insert into payment.pm_clients (client_id, name, description) values
-	('1','Гоша', 'Описание Гоши'),
-	('2','Антон','Описание Антона');
 
 insert into payment.pm_payments (payment_private_id, payment_public_id, client_id, reciever_account_id, sender_account_id,amount,key) values
 	('1','1','1','2','1','10000','123445532'),
