@@ -38,10 +38,10 @@
             <groupId>org.codehaus.janino</groupId>
             <artifactId>janino</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.epam.rd</groupId>
             <artifactId>payment-domain</artifactId>
-            <version>0.0.1</version>
         </dependency>
 
     </dependencies>

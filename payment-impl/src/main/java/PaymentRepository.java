@@ -4,19 +4,19 @@ import rd.epam.java.payment.domain.entity.Payment;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
-import java.util.ArrayList;
+import javax.persistence.TypedQuery;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 /**
- * PaymentRepository.
+ * Payment repository for working with payment table in database
  *
  * @author Dmitrii_Lopatin
  */
 @Slf4j
 public class PaymentRepository {
-    private final EntityManager entityManager = Persistence.createEntityManagerFactory("Payment-payment-unit").createEntityManager();
+    private final EntityManager entityManager = Persistence.createEntityManagerFactory("payment-unit").createEntityManager();
 
     /**
      * Add payment record into database
@@ -25,7 +25,7 @@ public class PaymentRepository {
      */
     public void save(Payment payment) {
         try {
-            log.info("Saving payment.");
+            log.info("save() - save payment {}", payment);
             entityManager.getTransaction().begin();
             entityManager.persist(payment);
             entityManager.getTransaction().commit();
@@ -35,16 +35,16 @@ public class PaymentRepository {
     }
 
     /**
-     * Finds payment in database by his private id
+     * Finds payment in database by its id
      *
      * @param id of payment
      * @return found payment or empty object
      */
     public Optional<Payment> findById(Integer id) {
         try {
-            log.info("Finding payment with id {}", id);
+            log.info("findById() - find payment by id = {}", id);
             Payment payment = entityManager.find(Payment.class, id);
-            return payment != null ? Optional.of(payment) : Optional.empty();
+            return Optional.ofNullable(payment);
         } catch (Exception e) {
             log.warn("Error during searching by id: ", e);
         }
@@ -52,19 +52,16 @@ public class PaymentRepository {
     }
 
     /**
-     * Finds list of payments in database based on private id list
+     * Finds list of payments in database
      *
-     * @param idList - list of id
+     * @param ids - list of id
      * @return list of payments or empty list
      */
-    public List<Payment> findByIdList(List<Integer> idList) {
+    public List<Payment> findByIdList(List<Integer> ids) {
         try {
-            log.info("Finding payments with ids {}", idList);
-            List<Payment> paymentList = new ArrayList<>();
-            for (Integer id : idList) {
-                paymentList.add(entityManager.find(Payment.class, id));
-            }
-            return paymentList;
+            log.info("findByIdList() - find list of payments by id = {}", ids);
+            TypedQuery<Payment> query = entityManager.createQuery("Select b from pm_payments b Where b.payment_private_id=:ids", Payment.class);
+            return query.setParameter("ids", ids).getResultList();
         } catch (Exception e) {
             log.warn("Error during searching by id list: ", e);
         }
@@ -79,7 +76,7 @@ public class PaymentRepository {
      */
     public Optional<Payment> update(Payment payment) {
         try {
-            log.info("Updating payment.");
+            log.info("update() - update payment {}", payment);
             entityManager.getTransaction().begin();
             entityManager.merge(payment);
             entityManager.getTransaction().commit();
@@ -91,15 +88,15 @@ public class PaymentRepository {
     }
 
     /**
-     * Deletes one payment record from database
+     * Deletes one payment record
      *
      * @param id of record for deleting
      */
     public void delete(Integer id) {
         try {
-            log.info("Deleting payment with id {}.", id);
+            log.info("delete() - delete payment by id = {}", id);
             entityManager.getTransaction().begin();
-            entityManager.remove(findById(id));
+            entityManager.remove(entityManager.find(Payment.class, id));
             entityManager.getTransaction().commit();
         } catch (Exception e) {
             log.warn("Error during deleting: ", e);

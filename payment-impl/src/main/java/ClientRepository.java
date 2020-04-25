@@ -4,19 +4,19 @@ import rd.epam.java.payment.domain.entity.Client;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
-import java.util.ArrayList;
+import javax.persistence.TypedQuery;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 /**
- * ClientRepository.
+ * Client repository for working with client table in database
  *
  * @author Dmitrii_Lopatin
  */
 @Slf4j
 public class ClientRepository {
-    private final EntityManager entityManager = Persistence.createEntityManagerFactory("Client-payment-unit").createEntityManager();
+    private final EntityManager entityManager = Persistence.createEntityManagerFactory("payment-unit").createEntityManager();
 
     /**
      * Add client record into database
@@ -25,7 +25,7 @@ public class ClientRepository {
      */
     public void save(Client client) {
         try {
-            log.info("Saving client.");
+            log.info("save() - save client {}", client);
             entityManager.getTransaction().begin();
             entityManager.persist(client);
             entityManager.getTransaction().commit();
@@ -42,9 +42,9 @@ public class ClientRepository {
      */
     public Optional<Client> findById(Integer id) {
         try {
-            log.info("Finding client with id {}", id);
+            log.info("findById() - find client by id = {}", id);
             Client client = entityManager.find(Client.class, id);
-            return client != null ? Optional.of(client) : Optional.empty();
+            return Optional.ofNullable(client);
         } catch (Exception e) {
             log.warn("Error during searching by id: ", e);
         }
@@ -52,19 +52,16 @@ public class ClientRepository {
     }
 
     /**
-     * Finds list of clients in database based on id list
+     * Finds list of clients in database
      *
-     * @param idList - list of id
+     * @param ids - list of id
      * @return list of clients or empty list
      */
-    public List<Client> findByIdList(List<Integer> idList) {
+    public List<Client> findByIdList(List<Integer> ids) {
         try {
-            log.info("Finding clients with ids {}", idList);
-            List<Client> clientList = new ArrayList<>();
-            for (Integer id : idList) {
-                clientList.add(entityManager.find(Client.class, id));
-            }
-            return clientList;
+            log.info("findByIdList() - find list of clients by id = {}", ids);
+            TypedQuery<Client> query = entityManager.createQuery("Select b from pm_clients b Where b.client_id=:ids", Client.class);
+            return query.setParameter("ids", ids).getResultList();
         } catch (Exception e) {
             log.warn("Error during searching by id list: ", e);
         }
@@ -79,7 +76,7 @@ public class ClientRepository {
      */
     public Optional<Client> update(Client client) {
         try {
-            log.info("Updating client.");
+            log.info("update() - update client {}", client);
             entityManager.getTransaction().begin();
             entityManager.merge(client);
             entityManager.getTransaction().commit();
@@ -97,9 +94,9 @@ public class ClientRepository {
      */
     public void delete(Integer id) {
         try {
-            log.info("Deleting client with id {}.", id);
+            log.info("delete() - delete client by id = {}", id);
             entityManager.getTransaction().begin();
-            entityManager.remove(findById(id));
+            entityManager.remove(entityManager.find(Client.class, id));
             entityManager.getTransaction().commit();
         } catch (Exception e) {
             log.warn("Error during deleting: ", e);
