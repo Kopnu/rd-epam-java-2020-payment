@@ -1,0 +1,74 @@
+1 попытка
+D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment>cd payment-db
+D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db>mvn clean install liquibase::update
+[INFO] Scanning for projects...
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.epam.rd:payment-db:jar:0.0.1
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing.
+    @ com.epam.rd:rd-epam-java-2020-payment:0.0.1, D:\Users\misas\IdeaProjects\rd-epam
+-java-2020-payment\pom.xml, line 63, column 21
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-site-plugin is missing.
+    @ com.epam.rd:rd-epam-java-2020-payment:0.0.1, D:\Users\misas\IdeaProjects\rd-epam-jav
+a-2020-payment\pom.xml, line 71, column 21
+[WARNING]
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING]
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING]
+[INFO]
+[INFO] -----------------------< com.epam.rd:payment-db >-----------------------
+[INFO] Building payment-db 0.0.1
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ payment-db ---
+[INFO] Deleting D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\target
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ payment-db ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 6 resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ payment-db ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ payment-db ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\src\test\resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ payment-db ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ payment-db ---
+[INFO] No tests to run.
+[INFO]
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ payment-db ---
+[INFO] Building jar: D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\target\payment-db-0.0.1.jar
+[INFO]
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ payment-db ---
+[INFO] Installing D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\target\payment-db-0.0.1.jar to C:\Users\misas\.m2\repository\com\epam\rd\payment-db\0.0.1\payment-db-0.
+0.1.jar
+[INFO] Installing D:\Users\misas\IdeaProjects\rd-epam-java-2020-payment\payment-db\pom.xml to C:\Users\misas\.m2\repository\com\epam\rd\payment-db\0.0.1\payment-db-0.0.1.pom
+[INFO]
+[INFO] --- liquibase-maven-plugin:3.8.9:update (default-cli) @ payment-db ---
+[INFO] ------------------------------------------------------------------------
+[INFO] there are no resolved artifacts for the Maven project.
+[INFO]
+[INFO]
+[INFO] Liquibase Community 3.8.9 by Datical
+[INFO] Starting Liquibase at Сб, 25 апр 2020 17:05:47 GMT+04:00 (version 3.8.9 #73 built at Mon Apr 06 09:32:58 UTC 2020)
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.401 s
+[INFO] Finished at: 2020-04-25T17:05:47+04:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.liquibase:liquibase-maven-plugin:3.8.9:update (default-cli) on project payment-db:
+[ERROR] Error setting up or running Liquibase:
+[ERROR] liquibase.exception.DatabaseException: java.lang.RuntimeException: Cannot find database driver: org.postgresql.Driver
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+2 попытка -> были добавлены депенды : postgresql and liquibase-core into payment-db/pom.xml
