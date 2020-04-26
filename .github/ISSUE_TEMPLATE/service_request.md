@@ -1,5 +1,5 @@
 ---
-name: SR
+name: Service Request
 about: Create a request to payment service
 title: 'SR: '
 labels: 'SR'
