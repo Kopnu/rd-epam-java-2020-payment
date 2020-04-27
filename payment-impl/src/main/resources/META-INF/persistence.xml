@@ -4,8 +4,7 @@
              version="2.0">
     <persistence-unit name="payment-unit">
         <!--Сюда вставлять путь до сущностей, например rd.epam.java.payment.domain.entity.Accept-->
-        <class>rd.epam.java.payment.domain.entity.Client</class>
-        <class>rd.epam.java.payment.domain.entity.Payment</class>
+        <class></class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
     </persistence-unit>
 </persistence>
