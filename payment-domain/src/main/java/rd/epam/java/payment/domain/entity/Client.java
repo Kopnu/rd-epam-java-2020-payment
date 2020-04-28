@@ -31,7 +31,7 @@ public class Client {
     private UUID id;
 
     private String name;
-
+    
     private String description;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "client", cascade = CascadeType.ALL)
