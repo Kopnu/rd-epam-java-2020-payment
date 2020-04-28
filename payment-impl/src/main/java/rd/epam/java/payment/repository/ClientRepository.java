@@ -1,6 +1,8 @@
+package rd.epam.java.payment.repository;
+
 import lombok.extern.slf4j.Slf4j;
 
-import rd.epam.java.payment.domain.entity.Payment;
+import rd.epam.java.payment.domain.entity.Client;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
@@ -10,24 +12,24 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Payment repository for working with payment table in database
+ * Client repository for working with client table in database
  *
  * @author Dmitrii_Lopatin
  */
 @Slf4j
-public class PaymentRepository {
+public class ClientRepository {
     private final EntityManager entityManager = Persistence.createEntityManagerFactory("payment-unit").createEntityManager();
 
     /**
-     * Add payment record into database
+     * Add client record into database
      *
-     * @param payment - record for saving
+     * @param client - record for saving
      */
-    public void save(Payment payment) {
+    public void save(Client client) {
         try {
-            log.info("save() - save payment {}", payment);
+            log.info("save() - save client {}", client);
             entityManager.getTransaction().begin();
-            entityManager.persist(payment);
+            entityManager.persist(client);
             entityManager.getTransaction().commit();
         } catch (Exception e) {
             log.warn("Error during saving: ", e);
@@ -35,16 +37,16 @@ public class PaymentRepository {
     }
 
     /**
-     * Finds payment in database by its id
+     * Finds client in database by his id
      *
-     * @param id of payment
-     * @return found payment or empty object
+     * @param id of client
+     * @return found client or empty object
      */
-    public Optional<Payment> findById(Integer id) {
+    public Optional<Client> findById(Integer id) {
         try {
-            log.info("findById() - find payment by id = {}", id);
-            Payment payment = entityManager.find(Payment.class, id);
-            return Optional.ofNullable(payment);
+            log.info("findById() - find client by id = {}", id);
+            Client client = entityManager.find(Client.class, id);
+            return Optional.ofNullable(client);
         } catch (Exception e) {
             log.warn("Error during searching by id: ", e);
         }
@@ -52,15 +54,15 @@ public class PaymentRepository {
     }
 
     /**
-     * Finds list of payments in database
+     * Finds list of clients in database
      *
      * @param ids - list of id
-     * @return list of payments or empty list
+     * @return list of clients or empty list
      */
-    public List<Payment> findByIdList(List<Integer> ids) {
+    public List<Client> findByIdList(List<Integer> ids) {
         try {
-            log.info("findByIdList() - find list of payments by id = {}", ids);
-            TypedQuery<Payment> query = entityManager.createQuery("Select b from pm_payments b Where b.payment_private_id=:ids", Payment.class);
+            log.info("findByIdList() - find list of clients by id = {}", ids);
+            TypedQuery<Client> query = entityManager.createQuery("Select b from pm_clients b Where b.client_id=:ids", Client.class);
             return query.setParameter("ids", ids).getResultList();
         } catch (Exception e) {
             log.warn("Error during searching by id list: ", e);
@@ -69,18 +71,18 @@ public class PaymentRepository {
     }
 
     /**
-     * Updates one payment record in database
+     * Updates one client record in database
      *
-     * @param payment for updating
-     * @return updated payment or empty object
+     * @param client for updating
+     * @return updated client or empty object
      */
-    public Optional<Payment> update(Payment payment) {
+    public Optional<Client> update(Client client) {
         try {
-            log.info("update() - update payment {}", payment);
+            log.info("update() - update client {}", client);
             entityManager.getTransaction().begin();
-            entityManager.merge(payment);
+            entityManager.merge(client);
             entityManager.getTransaction().commit();
-            return Optional.of(payment);
+            return Optional.of(client);
         } catch (Exception e) {
             log.warn("Error during updating: ", e);
         }
@@ -88,15 +90,15 @@ public class PaymentRepository {
     }
 
     /**
-     * Deletes one payment record
+     * Deletes one client record
      *
      * @param id of record for deleting
      */
     public void delete(Integer id) {
         try {
-            log.info("delete() - delete payment by id = {}", id);
+            log.info("delete() - delete client by id = {}", id);
             entityManager.getTransaction().begin();
-            entityManager.remove(entityManager.find(Payment.class, id));
+            entityManager.remove(entityManager.find(Client.class, id));
             entityManager.getTransaction().commit();
         } catch (Exception e) {
             log.warn("Error during deleting: ", e);
