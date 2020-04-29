@@ -12,6 +12,12 @@
     <artifactId>payment-impl</artifactId>
 
     <dependencies>
+        <!-- Payment -->
+        <dependency>
+            <groupId>com.epam.rd</groupId>
+            <artifactId>payment-domain</artifactId>
+        </dependency>
+
         <!--JPA/Database-->
         <dependency>
             <groupId>org.hibernate</groupId>

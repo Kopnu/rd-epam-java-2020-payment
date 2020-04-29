@@ -32,6 +32,13 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- Payment -->
+            <dependency>
+                <groupId>com.epam.rd</groupId>
+                <artifactId>payment-domain</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
             <!--JPA/Database-->
             <dependency>
                 <groupId>org.hibernate</groupId>
