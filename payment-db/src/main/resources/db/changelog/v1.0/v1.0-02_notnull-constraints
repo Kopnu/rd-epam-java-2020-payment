@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+      http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+
+    <changeSet id="2020-04-30-add-not-null-account-statuses-constraint" author="Dmitrii_Lopatin">
+        <addNotNullConstraint columnName="id" tableName="${prefix}_account_statuses"/>
+        <addNotNullConstraint columnName="status" tableName="${prefix}_account_statuses"/>
+    </changeSet>
+
+    <changeSet id="2020-04-30-add-not-null-clients-constraint" author="Dmitrii_Lopatin">
+        <addNotNullConstraint columnName="client_id" tableName="${prefix}_clients"/>
+        <addNotNullConstraint columnName="name" tableName="${prefix}_clients"/>
+    </changeSet>
+
+    <changeSet id="2020-04-30-add-not-null-accounts-constraint" author="Dmitrii_Lopatin">
+        <addNotNullConstraint columnName="account_id" tableName="${prefix}_accounts"/>
+        <addNotNullConstraint columnName="client_id" tableName="${prefix}_accounts"/>
+        <addNotNullConstraint columnName="account_number" tableName="${prefix}_accounts"/>
+        <addNotNullConstraint columnName="ogrn" tableName="${prefix}_accounts"/>
+        <addNotNullConstraint columnName="kpp" tableName="${prefix}_accounts"/>
+        <addNotNullConstraint columnName="inn" tableName="${prefix}_accounts"/>
+        <addNotNullConstraint columnName="account_status_id" tableName="${prefix}_accounts"/>
+    </changeSet>
+
+    <changeSet id="2020-04-30-add-not-null-payments-constraint" author="Dmitrii_Lopatin">
+        <addNotNullConstraint columnName="payment_private_id" tableName="${prefix}_payments"/>
+        <addNotNullConstraint columnName="payment_public_id" tableName="${prefix}_payments"/>
+        <addNotNullConstraint columnName="client_id" tableName="${prefix}_payments"/>
+        <addNotNullConstraint columnName="reciever_account_id" tableName="${prefix}_payments"/>
+        <addNotNullConstraint columnName="sender_account_id" tableName="${prefix}_payments"/>
+        <addNotNullConstraint columnName="amount" tableName="${prefix}_payments"/>
+        <addNotNullConstraint columnName="key" tableName="${prefix}_payments"/>
+    </changeSet>
+
+    <changeSet id="2020-04-30-add-not-null-accept_statuses-constraint" author="Dmitrii_Lopatin">
+        <addNotNullConstraint columnName="id" tableName="${prefix}_accept_statuses"/>
+        <addNotNullConstraint columnName="status" tableName="${prefix}_accept_statuses"/>
+    </changeSet>
+
+    <changeSet id="2020-04-30-add-not-null-accepts-constraint" author="Dmitrii_Lopatin">
+        <addNotNullConstraint columnName="accept_id" tableName="${prefix}_accepts"/>
+        <addNotNullConstraint columnName="payment_private_id" tableName="${prefix}_accepts"/>
+        <addNotNullConstraint columnName="client_callback_url" tableName="${prefix}_accepts"/>
+        <addNotNullConstraint columnName="client_payment_url" tableName="${prefix}_accepts"/>
+        <addNotNullConstraint columnName="key" tableName="${prefix}_accepts"/>
+        <addNotNullConstraint columnName="accept_status_id" tableName="${prefix}_accepts"/>
+    </changeSet>
+
+    <changeSet id="2020-04-30-rename-payments-column" author="Dmitrii_Lopatin">
+        <renameColumn newColumnName="receiver_account_id" oldColumnName="reciever_account_id" tableName="${prefix}_payments"/>
+    </changeSet>
+
+</databaseChangeLog>
