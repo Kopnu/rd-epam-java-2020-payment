@@ -45,6 +45,11 @@
             <artifactId>janino</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.epam.rd</groupId>
+            <artifactId>payment-domain</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>
