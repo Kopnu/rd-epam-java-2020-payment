@@ -9,5 +9,6 @@
     <property name="prefix" value="pm"/>
 
     <include file="changelog/v1.0/v1.0-01_init-db.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/v1.0/v1.0-02_init-db.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

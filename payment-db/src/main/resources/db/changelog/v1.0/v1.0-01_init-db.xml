@@ -108,4 +108,5 @@
                                  constraintName="fk_accept_statuses"
                                  referencedColumnNames="id" referencedTableName="${prefix}_accept_statuses"/>
     </changeSet>
+
 </databaseChangeLog>
