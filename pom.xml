@@ -28,6 +28,8 @@
         <lombok.version>1.18.12</lombok.version>
         <logback-classic.version>1.2.3</logback-classic.version>
         <janino.version>3.0.6</janino.version>
+
+        <payment-domain.version>0.0.1</payment-domain.version>
     </properties>
 
     <dependencyManagement>
@@ -77,6 +79,13 @@
                 <artifactId>janino</artifactId>
                 <version>${janino.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.epam.rd</groupId>
+                <artifactId>payment-domain</artifactId>
+                <version>${payment-domain.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

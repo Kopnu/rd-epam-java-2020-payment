@@ -11,5 +11,17 @@
 
     <artifactId>payment-domain</artifactId>
 
+    <dependencies>
+        <!--JPA/Database-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+        </dependency>
+        <!--Utils-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
