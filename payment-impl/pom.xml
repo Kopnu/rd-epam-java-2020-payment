@@ -44,6 +44,10 @@
             <groupId>org.codehaus.janino</groupId>
             <artifactId>janino</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.epam.rd</groupId>
+            <artifactId>payment-domain</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>com.epam.rd</groupId>
