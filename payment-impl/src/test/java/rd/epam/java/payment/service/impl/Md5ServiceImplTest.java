@@ -17,7 +17,7 @@ import static org.testng.Assert.*;
 
 public class Md5ServiceImplTest {
 
-    private final static List<String> FIELDS = List.of("payment", "test", "md5", "string");
+    private final static List<String> ACCOUNT_FIELDS = List.of("payment", "test", "md5", "string");
     private final static String VALID_MD5 = "8bf69634c58b235978448447e594a6ae";
     private final static String INVALID_MD5 = "2c00dfe59ae82d0bcfb0571bf7840974";
 
@@ -39,7 +39,7 @@ public class Md5ServiceImplTest {
 
     @Test
     public void testValidGenerateMd5() {
-        String result = md5Service.generateMd5(FIELDS);
+        String result = md5Service.generateMd5(ACCOUNT_FIELDS);
         assertEquals(VALID_MD5, result);
     }
 
@@ -57,10 +57,10 @@ public class Md5ServiceImplTest {
 
     private Account getAccount() {
         return new Account()
-                .setOgrn(FIELDS.get(0))
-                .setKpp(FIELDS.get(1))
-                .setInn(FIELDS.get(2))
-                .setAccountNumber(FIELDS.get(3));
+                .setOgrn(ACCOUNT_FIELDS.get(0))
+                .setKpp(ACCOUNT_FIELDS.get(1))
+                .setInn(ACCOUNT_FIELDS.get(2))
+                .setAccountNumber(ACCOUNT_FIELDS.get(3));
     }
 
 }
