@@ -17,6 +17,7 @@ public class ClientServiceImpl implements ClientService {
         return null;
     }
 
+
     @Override
     public Client find(UUID uuid) {
         return null;
