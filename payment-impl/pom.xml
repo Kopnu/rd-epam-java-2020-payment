@@ -45,8 +45,8 @@
             <artifactId>janino</artifactId>
         </dependency>
         <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
+            <groupId>com.epam.rd</groupId>
+            <artifactId>payment-domain</artifactId>
         </dependency>
 
         <!-- Tests -->

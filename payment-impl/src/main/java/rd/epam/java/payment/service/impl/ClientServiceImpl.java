@@ -9,7 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -21,30 +20,15 @@ import java.util.UUID;
 public class ClientServiceImpl implements ClientService {
     public final ClientRepository clientRepository = new ClientRepository();
 
-    /**
-     * Create client
-     *
-     * @param client entity
-     * @return client or null
-     */
     @Override
     public Client createClient(Client client) {
-        // клиент выходит с id шником
-        // добавить в реп поиск по сущности в бд
-        // создать запрос(get query) на поиск сущности в бд
-
-        //сюда приходит client, засовывается в репозиторий
-        // у него появляется UUID(в репе)
-        // запрос на поиск в репе по name(они уникальные)(createQuery)
-        // возвращаем из createClient client'а с UUId'шником
-        if (Objects.nonNull(client)) {
-            log.debug("createClient() - create client {}", client);
-            clientRepository.save(client);
-            return clientRepository.findByName(client.getName()).get();
-        } else {
+        if(Objects.isNull(client)){
             log.error("createClient() - error client is null");
+            return null;
         }
-        return null;
+        log.debug("createClient() - create client {}", client);
+        clientRepository.save(client);
+        return clientRepository.findByName(client.getName()).get();
     }
 
     /**
@@ -55,13 +39,12 @@ public class ClientServiceImpl implements ClientService {
      */
     @Override
     public Client find(UUID uuid) {
-        if (Objects.nonNull(uuid)) {
-            log.debug("find() - find client by uuid : {}", uuid);
-            return clientRepository.findById(uuid).get();
-        } else {
+        if (Objects.isNull(uuid)) {
             log.error("find() - error uuid is null");
+            return null;
         }
-        return null;
+        log.debug("find() - find client by uuid : {}", uuid);
+        return clientRepository.findById(uuid).get();
     }
 
     /**
@@ -72,13 +55,12 @@ public class ClientServiceImpl implements ClientService {
      */
     @Override
     public List<Client> findAll(List<UUID> ids) {
-        if(Objects.nonNull(ids)) {
-            log.debug("findAll() - find list of clients by id = {}", ids);
-            return clientRepository.findByIdList(ids);
-        }else{
+        if(Objects.isNull(ids)){
             log.error("findAll() - error ids is null");
+            return Collections.emptyList();
         }
-        return Collections.emptyList();
+        log.debug("findAll() - find list of clients by id = {}", ids);
+        return clientRepository.findByIdList(ids);
     }
 
     /**
@@ -89,13 +71,12 @@ public class ClientServiceImpl implements ClientService {
      */
     @Override
     public Client update(Client client) {
-        if(Objects.nonNull(client)){
-            log.debug("update() - update client : {}",client);
-            return clientRepository.update(client).get();
-        }else{
+        if(Objects.isNull(client)){
             log.error("update() - error client is null");
+            return null;
         }
-        return null;
+        log.debug("update() - update client : {}",client);
+        return clientRepository.update(client).get();
     }
 
     /**
@@ -106,13 +87,12 @@ public class ClientServiceImpl implements ClientService {
      */
     @Override
     public boolean delete(UUID uuid) {
-        if(Objects.nonNull(uuid)){
-            log.debug("delete() - delete client by id : {}",uuid);
-            clientRepository.delete(uuid);
-            return true;
-        }else{
+        if(Objects.isNull(uuid)){
             log.error("delete() - error uuid is null");
+            return false;
         }
-        return false;
+        log.debug("delete() - delete client by id : {}",uuid);
+        clientRepository.delete(uuid);
+        return true;
     }
 }

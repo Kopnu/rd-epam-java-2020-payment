@@ -20,6 +20,8 @@ import java.util.UUID;
 @Slf4j
 public class ClientRepository {
     private final EntityManager entityManager = Persistence.createEntityManagerFactory("payment-unit").createEntityManager();
+    private static String qlQueryID = "Select b from pm_clients b Where b.client_id=:ids";
+    private static String qlQueryName = "Select b from pm_clients b Where b.name=:name";
 
     /**
      * Add client record into database
@@ -33,7 +35,7 @@ public class ClientRepository {
             entityManager.persist(client);
             entityManager.getTransaction().commit();
         } catch (Exception e) {
-            log.error("save() - error during saving ", e);
+            log.error("save() - error during saving ",e);
         }
     }
 
@@ -49,7 +51,7 @@ public class ClientRepository {
             Client client = entityManager.find(Client.class, id);
             return Optional.ofNullable(client);
         } catch (Exception e) {
-            log.error("findByIdList() - error during searching by id ", e);
+            log.error("findByIdList() - error during searching by id ",e);
         }
         return Optional.empty();
     }
@@ -63,10 +65,10 @@ public class ClientRepository {
     public List<Client> findByIdList(List<UUID> ids) {
         try {
             log.debug("findByIdList() - find list of clients by id = {}", ids);
-            TypedQuery<Client> query = entityManager.createQuery("Select b from pm_clients b Where b.client_id=:ids", Client.class);
+            TypedQuery<Client> query = entityManager.createQuery(qlQueryID, Client.class);
             return query.setParameter("ids", ids).getResultList();
         } catch (Exception e) {
-            log.error("findByIdList() - error during searching by id list ", e);
+            log.error("findByIdList() - error during searching by id list ",e);
         }
         return Collections.emptyList();
     }
@@ -85,7 +87,7 @@ public class ClientRepository {
             entityManager.getTransaction().commit();
             return Optional.of(client);
         } catch (Exception e) {
-            log.error("update() - error during updating ", e);
+            log.error("update() - error during updating ",e);
         }
         return Optional.empty();
     }
@@ -102,7 +104,7 @@ public class ClientRepository {
             entityManager.remove(entityManager.find(Client.class, id));
             entityManager.getTransaction().commit();
         } catch (Exception e) {
-            log.error("delete() - error during deleting ", e);
+            log.error("delete() - error during deleting ",e);
         }
     }
 
@@ -115,10 +117,10 @@ public class ClientRepository {
     public Optional<Client> findByName(String name) {
         try {
             log.debug("findByName() - find client by name = {}", name);
-            TypedQuery<Client> query = entityManager.createQuery("Select b from pm_clients b Where b.name=:name", Client.class);
+            TypedQuery<Client> query = entityManager.createQuery(qlQueryName, Client.class);
             return Optional.ofNullable(query.setParameter("name", name).getSingleResult());
         } catch (Exception e) {
-            log.error("findByName() - error during searching by name ", e);
+            log.error("findByName() - error during searching by name ",e);
         }
         return Optional.empty();
     }

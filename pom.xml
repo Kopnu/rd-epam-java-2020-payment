@@ -29,7 +29,6 @@
         <lombok.version>1.18.12</lombok.version>
         <logback-classic.version>1.2.3</logback-classic.version>
         <janino.version>3.0.6</janino.version>
-        <commons-codec.version>1.9</commons-codec.version>
 
         <mockito-testng.version>0.1.1</mockito-testng.version>
         <testng.version>7.0.0-beta1</testng.version>
@@ -81,11 +80,6 @@
                 <groupId>org.codehaus.janino</groupId>
                 <artifactId>janino</artifactId>
                 <version>${janino.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-codec</groupId>
-                <artifactId>commons-codec</artifactId>
-                <version>${commons-codec.version}</version>
             </dependency>
 
             <!-- Tests -->
