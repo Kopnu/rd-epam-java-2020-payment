@@ -31,8 +31,8 @@ public class Md5ServiceImplTest {
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         // Следующее можно делать и в @Test методах, если нужно настроить индивидуально.
-        // Но помним, что каждый тест не индивидуален и настройки моков в отдельных тестах
-        // приведут к изменениям во всех.
+        // Но помним, что каждый тест в классе не индивидуален и настройки моков в отдельных тестах
+        // приведут к изменениям во всех из данного класса.
         Account account = getAccount();
         when(accountService.find(any(UUID.class))).thenReturn(account);
     }
