@@ -24,7 +24,7 @@ public class Md5ServiceImpl implements Md5Service {
 
     @Override
     public String generateMd5(List<String> fields) {
-        log.info("generateMd5() - generate md5 from fields = {}", fields);
+        log.debug("generateMd5() - generate md5 from fields = {}", fields);
         String stringOptional = fields.stream()
                 .reduce((str1, str2) -> str1 + ":" + str2)
                 .orElse("");
@@ -35,13 +35,16 @@ public class Md5ServiceImpl implements Md5Service {
 
     @Override
     public Boolean validateAccountMd5(UUID accountId, String md5) {
+        log.debug("validateAccountMd5() - validate account with id = {} and md5 = {}", accountId, md5);
         boolean result = false;
         Account account = accountService.find(accountId);
         if (Objects.nonNull(account)) {
+            log.trace("validateAccountMd5() - founded account = {}", account);
             List<String> fields = List.of(account.getOgrn(), account.getKpp(), account.getInn(), account.getAccountNumber());
             String generateMd5 = generateMd5(fields);
             result = generateMd5.equals(md5);
         }
+        log.debug("validateAccountMd5() - validate result = {}", result);
         return result;
     }
 }
