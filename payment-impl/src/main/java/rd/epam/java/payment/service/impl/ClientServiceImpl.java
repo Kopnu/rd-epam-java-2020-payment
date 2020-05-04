@@ -14,6 +14,14 @@ import java.util.UUID;
 public class ClientServiceImpl implements ClientService {
     @Override
     public Client createClient(Client client) {
+        // клиент выходит с id шником
+        // добавить в реп поиск по сущности в бд
+        // создать запрос(get query) на поиск сущности в бд
+
+        //сюда приходит client, засовывается в репозиторий
+        // у него появляется UUID(в репе)
+        // запрос на поиск в репе по name(они уникальные)(createQuery)
+        // возвращаем из createClient client'а с UUId'шником
         return null;
     }
 
