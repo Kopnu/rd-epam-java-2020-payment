@@ -1,17 +1,28 @@
 package rd.epam.java.payment.service.impl;
 
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertNotEquals;
+import static org.testng.Assert.assertNull;
+import static org.testng.Assert.assertTrue;
+
+import rd.epam.java.payment.domain.entity.Payment;
+import rd.epam.java.payment.repository.PaymentRepository;
+
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import rd.epam.java.payment.domain.entity.Payment;
-import rd.epam.java.payment.repository.PaymentRepository;
 
-import java.util.*;
-
-import static org.mockito.Mockito.*;
-import static org.testng.Assert.*;
+import java.util.Collections;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
+import java.util.UUID;
 
 /**
  * {@link PaymentServiceImpl} tests.
@@ -86,7 +97,7 @@ public class PaymentServiceImplTest {
     @Test
     public void testFindAllWhenUuidsIsNull() {
         List<Payment> result = paymentServiceImpl.findAll(null);
-        assertEquals(Collections.EMPTY_LIST, result);
+        assertEquals(Collections.emptyList(), result);
     }
 
     @Test

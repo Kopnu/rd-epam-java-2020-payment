@@ -1,11 +1,11 @@
 package rd.epam.java.payment.service.impl;
 
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-
 import rd.epam.java.payment.domain.entity.Payment;
 import rd.epam.java.payment.repository.PaymentRepository;
 import rd.epam.java.payment.service.PaymentService;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Collections;
 import java.util.List;
