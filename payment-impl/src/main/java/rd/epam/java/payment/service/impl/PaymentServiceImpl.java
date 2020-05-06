@@ -21,7 +21,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class PaymentServiceImpl implements PaymentService {
 
-    private final PaymentRepository paymentRepository = new PaymentRepository();
+    private final PaymentRepository paymentRepository;
 
     @Override
     public Payment createPayment(Payment payment) {
