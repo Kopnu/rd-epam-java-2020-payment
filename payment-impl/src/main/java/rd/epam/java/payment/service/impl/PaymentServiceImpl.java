@@ -46,13 +46,13 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
-    public List<Payment> findAll(List<UUID> ids) {
-        if (Objects.isNull(ids)) {
+    public List<Payment> findAll(List<UUID> uuids) {
+        if (Objects.isNull(uuids)) {
             log.error("findAll() - error: ids is null");
             return Collections.emptyList();
         }
-        log.debug("findAll() - find list of payments by id list {}", ids);
-        return paymentRepository.findByIdList(ids);
+        log.debug("findAll() - find list of payments by id list {}", uuids);
+        return paymentRepository.findByIdList(uuids);
     }
 
     @Override
