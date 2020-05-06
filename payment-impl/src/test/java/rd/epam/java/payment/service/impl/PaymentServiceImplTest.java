@@ -41,12 +41,11 @@ public class PaymentServiceImplTest {
 
     @Test
     public void testCreatePayment() {
-        /* Setup */
         doNothing().when(paymentRepository).save(VALID_PAYMENT);
         when(paymentRepository.findById(VALID_PAYMENT.getPaymentPrivateId())).thenReturn(Optional.of(VALID_PAYMENT));
-        /* Body */
+
         Payment result = paymentServiceImpl.createPayment(VALID_PAYMENT);
-        /* Check */
+
         verify(paymentRepository).save(VALID_PAYMENT);
         assertNotEquals(VALID_PAYMENT.getPaymentPrivateId(), VALID_PAYMENT.getPaymentPublicId());
         assertEquals(VALID_PAYMENT, result);
@@ -56,7 +55,9 @@ public class PaymentServiceImplTest {
     public void testCreatePaymentWhenFindByIdIsNull() {
         doNothing().when(paymentRepository).save(VALID_PAYMENT);
         when(paymentRepository.findById(VALID_PAYMENT.getPaymentPrivateId())).thenReturn(Optional.empty());
+
         Payment result = paymentServiceImpl.createPayment(VALID_PAYMENT);
+
         verify(paymentRepository).save(VALID_PAYMENT);
         assertNotEquals(VALID_PAYMENT.getPaymentPrivateId(), VALID_PAYMENT.getPaymentPublicId());
         assertNull(result);
@@ -94,7 +95,9 @@ public class PaymentServiceImplTest {
         List<UUID> uuids = List.of(VALID_UUID, randomUUID);
         List<Payment> payments = List.of(VALID_PAYMENT, new Payment().setPaymentPrivateId(randomUUID));
         when(paymentRepository.findByIdList(uuids)).thenReturn(payments);
+
         List<Payment> result = paymentServiceImpl.findAll(uuids);
+
         assertEquals(payments, result);
     }
 
@@ -102,7 +105,9 @@ public class PaymentServiceImplTest {
     public void testFindAllWhenUuidsIsEmpty() {
         List<UUID> uuids = Collections.emptyList();
         when(paymentRepository.findByIdList(uuids)).thenReturn(Collections.emptyList());
+
         List<Payment> result = paymentServiceImpl.findAll(uuids);
+
         assertEquals(Collections.EMPTY_LIST, result);
     }
 
@@ -129,7 +134,9 @@ public class PaymentServiceImplTest {
     @Test
     public void testTrueDelete() {
         doNothing().when(paymentRepository).delete(VALID_UUID);
+
         boolean result = paymentServiceImpl.delete(VALID_UUID);
+
         verify(paymentRepository).delete(VALID_UUID);
         assertTrue(result);
     }

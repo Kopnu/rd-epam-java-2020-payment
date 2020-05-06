@@ -15,7 +15,7 @@ import java.util.UUID;
 /**
  * {@link PaymentService} implementation.
  *
- * @author Sergei_Kornilov
+ * @author Dmitrii_Lopatin
  */
 @Slf4j
 @RequiredArgsConstructor
