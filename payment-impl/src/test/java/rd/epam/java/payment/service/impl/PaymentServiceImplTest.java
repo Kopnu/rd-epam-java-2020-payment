@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import rd.epam.java.payment.domain.entity.Client;
 import rd.epam.java.payment.domain.entity.Payment;
 import rd.epam.java.payment.repository.PaymentRepository;
+import rd.epam.java.payment.service.PaymentService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,17 +25,16 @@ import static org.testng.Assert.*;
  * @author Dmitrii_Lopatin
  */
 public class PaymentServiceImplTest {
-
-    private final static Payment VALID_PAYMENT = getPayment();
-    private final static UUID VALID_UUID = UUID.randomUUID();
-    private final static List<UUID> VALID_UUID_LIST = getValidUuidList();
-    private final static UUID INVALID_UUID = UUID.randomUUID();
+    private final Payment VALID_PAYMENT = getPayment();
+    private final UUID VALID_UUID = UUID.randomUUID();
+    private final List<UUID> VALID_UUID_LIST = getValidUuidList();
+    private final UUID INVALID_UUID = UUID.randomUUID();
 
     @Mock
-    private PaymentRepository paymentRepository;
+    private PaymentService paymentService;
 
     @InjectMocks
-    private PaymentServiceImpl paymentService;
+    private PaymentServiceImpl paymentServiceImpl;
 
     @BeforeMethod
     public void setUp() {
@@ -45,59 +45,58 @@ public class PaymentServiceImplTest {
 
     @Test
     public void testValidCreatePayment() {
-        Payment result = paymentService.createPayment(VALID_PAYMENT);
+        Payment result = paymentServiceImpl.createPayment(VALID_PAYMENT);
         assertEquals(VALID_PAYMENT, result);
     }
 
     @Test
     public void testValidFind() {
-        Payment result = paymentService.find(VALID_UUID);
+        Payment result = paymentServiceImpl.find(VALID_UUID);
         assertEquals(VALID_PAYMENT, result);
     }
 
-    @Test
-    public void testInvalidFind() {
-        Payment result = paymentService.find(INVALID_UUID);
-        assertNotEquals(VALID_PAYMENT, result);
-    }
 
     @Test
     public void testValidFindAll() {
-        List<Payment> result = paymentService.findAll(VALID_UUID_LIST);
-        assertEquals(VALID_PAYMENT, result);
+        List<Payment> result = paymentServiceImpl.findAll(VALID_UUID_LIST);
+        List<Payment> validList = new ArrayList<>();
+        validList.add(VALID_PAYMENT);
+        assertEquals(validList, result);
     }
 
     @Test
     public void testValidUpdate() {
-        Payment result = paymentService.update(VALID_PAYMENT);
+        Payment result = paymentServiceImpl.update(VALID_PAYMENT);
         assertEquals(VALID_PAYMENT, result);
     }
 
     @Test
     public void testTrueDelete() {
-        Boolean result = paymentService.delete(VALID_UUID);
+        Boolean result = paymentServiceImpl.delete(VALID_UUID);
         assertTrue(result);
     }
 
+    @Test
     public void testFalseDelete() {
-        Boolean result = paymentService.delete(null);
+        Boolean result = paymentServiceImpl.delete(null);
         assertFalse(result);
     }
 
-    private static List<UUID> getValidUuidList() {
+    private List<UUID> getValidUuidList() {
         List<UUID> uuids = new ArrayList<>();
         uuids.add(UUID.randomUUID());
         return uuids;
     }
 
-    private static Payment getPayment() {
-        Payment payment = new Payment();
+    private Payment getPayment() {
         Client client = new Client();
-        payment.setPaymentPrivateId(VALID_UUID);
-        payment.setKey("8bf69634c58b235978448447e594a6ae");
-        payment.setAmount((double) 1000);
-        payment.setClientId(client);
-        return payment;
+        return new Payment().setPaymentPrivateId(VALID_UUID)
+                .setPaymentPrivateId(VALID_UUID)
+                .setPaymentPublicId(VALID_UUID)
+                .setKey("8bf69634c58b235978448447e594a6ae")
+                .setAmount((double) 1000)
+                .setReceiverAccountId(VALID_UUID)
+                .setSenderAccountId(VALID_UUID)
+                .setClientId(client);
     }
-
 }
