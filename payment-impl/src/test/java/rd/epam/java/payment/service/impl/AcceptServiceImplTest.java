@@ -30,9 +30,6 @@ import java.util.UUID;
  */
 public class AcceptServiceImplTest {
     private final Accept VALID_ACCEPT = getAccept();
-    private final Accept INVALID_ACCEPT_WITHOUT_CALLBACK_URL = getInvalidAcceptWithoutCallbackUrl();
-    private final Accept INVALID_ACCEPT_WITHOUT_PAYMENT_URL = getInvalidAcceptWithoutPaymentUrl();
-    private final Accept INVALID_ACCEPT_WITHOUT_KEY = getInvalidAcceptWithoutKey();
     private final UUID VALID_UUID = UUID.randomUUID();
     private final String VALID_STATUS_ID = "Принят в обработку";
 
@@ -55,19 +52,19 @@ public class AcceptServiceImplTest {
 
     @Test
     public void testCreateAcceptWhenAcceptCallbackUrlIsNull() {
-        Accept result = acceptServiceImpl.createAccept(INVALID_ACCEPT_WITHOUT_CALLBACK_URL);
+        Accept result = acceptServiceImpl.createAccept(getInvalidAcceptWithoutCallbackUrl());
         assertNull(result);
     }
 
     @Test
     public void testCreateAcceptWhenAcceptPaymentUrlIsNull() {
-        Accept result = acceptServiceImpl.createAccept(INVALID_ACCEPT_WITHOUT_PAYMENT_URL);
+        Accept result = acceptServiceImpl.createAccept(getInvalidAcceptWithoutPaymentUrl());
         assertNull(result);
     }
 
     @Test
     public void testCreateAcceptWhenAcceptKeyIsNull() {
-        Accept result = acceptServiceImpl.createAccept(INVALID_ACCEPT_WITHOUT_KEY);
+        Accept result = acceptServiceImpl.createAccept(getInvalidAcceptWithoutKey());
         assertNull(result);
     }
 
