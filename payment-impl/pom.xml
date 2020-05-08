@@ -31,6 +31,7 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
         </dependency>
+
         <!--Utils-->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -44,6 +45,11 @@
             <groupId>org.codehaus.janino</groupId>
             <artifactId>janino</artifactId>
         </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+        </dependency>
+
         <!-- Tests -->
         <dependency>
             <groupId>org.testng</groupId>
