@@ -4,6 +4,7 @@ import rd.epam.java.payment.domain.entity.Client;
 import rd.epam.java.payment.repository.ClientRepository;
 import rd.epam.java.payment.service.ClientService;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Collections;
@@ -17,8 +18,9 @@ import java.util.UUID;
  * @author Sergei_Kornilov
  */
 @Slf4j
+@RequiredArgsConstructor
 public class ClientServiceImpl implements ClientService {
-    public final ClientRepository clientRepository = new ClientRepository();
+    private final ClientRepository clientRepository;
 
     @Override
     public Client createClient(Client client) {
