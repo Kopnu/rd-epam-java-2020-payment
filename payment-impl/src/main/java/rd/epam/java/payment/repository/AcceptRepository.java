@@ -23,12 +23,12 @@ public class AcceptRepository {
 
     public void save(Accept accept) {
         try {
-            log.info("save() - save accept {}", accept);
+            log.debug("save() - save accept {}", accept);
             entityManager.getTransaction().begin();
             entityManager.persist(accept);
             entityManager.getTransaction().commit();
         } catch (Exception e) {
-            log.warn("Error during saving: ", e);
+            log.error("save() - error during saving: ", e);
         }
     }
 
@@ -40,11 +40,11 @@ public class AcceptRepository {
      */
     public Optional<Accept> findById(UUID acceptId) {
         try {
-            log.info("findById() - find accept by id = {}", acceptId);
+            log.debug("findById() - find accept by id = {}", acceptId);
             Accept accept = entityManager.find(Accept.class, acceptId);
             return Optional.ofNullable(accept);
         } catch (Exception e) {
-            log.warn("Error during searching by acceptId: ", e);
+            log.error("findById - error during searching by acceptId: ", e);
         }
         return Optional.empty();
     }
@@ -52,16 +52,16 @@ public class AcceptRepository {
     /**
      * Finds list of accepts by ids in database
      *
-     * @param ids - id list
+     * @param uuids - id list
      * @return list of accepts or empty list
      */
-    public List<Accept> findByIdList(List<UUID> ids) {
+    public List<Accept> findByIdList(List<UUID> uuids) {
         try {
-            log.info("findByIdList() - find list of accepts by id = {}", ids);
+            log.debug("findByIdList() - find list of accepts by id = {}", uuids);
             TypedQuery<Accept> query = entityManager.createQuery(FIND_BY_ID_LIST, Accept.class);
-            return query.setParameter("ids", ids).getResultList();
+            return query.setParameter("ids", uuids).getResultList();
         } catch (Exception e) {
-            log.warn("Error during searching by id list: ", e);
+            log.error("findByIdList() - error during searching by id list: ", e);
         }
         return Collections.emptyList();
     }
@@ -74,13 +74,13 @@ public class AcceptRepository {
      */
     public Optional<Accept> update(Accept accept) {
         try {
-            log.info("update() - update accept {}", accept);
+            log.debug("update() - update accept {}", accept);
             entityManager.getTransaction().begin();
             entityManager.merge(accept);
             entityManager.getTransaction().commit();
             return Optional.of(accept);
         } catch (Exception e) {
-            log.warn("Error during updating: ", e);
+            log.error("update() - error during updating: ", e);
         }
         return Optional.empty();
     }
@@ -90,15 +90,15 @@ public class AcceptRepository {
      *
      * @param id - id of accept to delete
      */
-    public void delete(Integer id) {
+    public void delete(UUID id) {
         try {
-            log.info("delete() - delete accept by id = {}", id);
+            log.debug("delete() - delete accept by id = {}", id);
             entityManager.getTransaction().begin();
             Accept accept = entityManager.find(Accept.class, id);
             entityManager.remove(accept);
             entityManager.getTransaction().commit();
         } catch (Exception e) {
-            log.warn("Error during deleting: ", e);
+            log.error("delete() - error during deleting: ", e);
         }
     }
 }
