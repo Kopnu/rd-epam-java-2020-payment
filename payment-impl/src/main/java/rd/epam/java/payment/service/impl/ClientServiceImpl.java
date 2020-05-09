@@ -33,12 +33,6 @@ public class ClientServiceImpl implements ClientService {
         return clientRepository.findByName(client.getName()).get();
     }
 
-    /**
-     * Finds client in repository by id
-     *
-     * @param uuid id of client
-     * @return client or null
-     */
     @Override
     public Client find(UUID uuid) {
         if (Objects.isNull(uuid)) {
@@ -49,12 +43,6 @@ public class ClientServiceImpl implements ClientService {
         return clientRepository.findById(uuid).get();
     }
 
-    /**
-     * Finds list of clients in repository
-     *
-     * @param ids list of id
-     * @return list of clients or empty list
-     */
     @Override
     public List<Client> findAll(List<UUID> ids) {
         if(Objects.isNull(ids)){
@@ -65,12 +53,6 @@ public class ClientServiceImpl implements ClientService {
         return clientRepository.findByIdList(ids);
     }
 
-    /**
-     * Updates one client in repository
-     *
-     * @param client entity to update
-     * @return client or null
-     */
     @Override
     public Client update(Client client) {
         if(Objects.isNull(client)){
@@ -81,12 +63,6 @@ public class ClientServiceImpl implements ClientService {
         return clientRepository.update(client).get();
     }
 
-    /**
-     * Delete one client without repository
-     *
-     * @param uuid id client
-     * @return true or false
-     */
     @Override
     public boolean delete(UUID uuid) {
         if(Objects.isNull(uuid)){
