@@ -52,6 +52,7 @@ public class ClientServiceImplTest {
     @Test
     public void testCreateClient() {
         doNothing().when(clientRepository).save(VALID_CLIENT);
+
         when(clientRepository.findById(VALID_CLIENT.getId())).thenReturn(Optional.of(VALID_CLIENT));
 
         Client result = clientServiceImpl.createClient(VALID_CLIENT);
