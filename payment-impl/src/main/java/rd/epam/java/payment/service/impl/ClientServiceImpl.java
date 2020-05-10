@@ -3,6 +3,8 @@ package rd.epam.java.payment.service.impl;
 import rd.epam.java.payment.domain.entity.Client;
 import rd.epam.java.payment.service.ClientService;
 
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.UUID;
 
@@ -11,6 +13,7 @@ import java.util.UUID;
  *
  * @author Sergei_Kornilov
  */
+@Service
 public class ClientServiceImpl implements ClientService {
     @Override
     public Client createClient(Client client) {

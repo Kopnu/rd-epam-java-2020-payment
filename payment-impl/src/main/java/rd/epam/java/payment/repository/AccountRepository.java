@@ -3,6 +3,9 @@ package rd.epam.java.payment.repository;
 import rd.epam.java.payment.domain.entity.Account;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
@@ -17,8 +20,10 @@ import java.util.Optional;
  * @author Mihail_Sevryugin
  */
 @Slf4j
+@Repository
 public class AccountRepository {
-    private final EntityManager entityManager = Persistence.createEntityManagerFactory("payment-unit").createEntityManager();
+    @Autowired
+    private EntityManager entityManager;
 
     /**
      * Add account record into database
