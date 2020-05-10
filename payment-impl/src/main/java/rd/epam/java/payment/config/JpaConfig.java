@@ -1,8 +1,5 @@
 package rd.epam.java.payment.config;
 
-import rd.epam.java.payment.repository.AcceptRepository;
-import rd.epam.java.payment.service.impl.AcceptServiceImpl;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

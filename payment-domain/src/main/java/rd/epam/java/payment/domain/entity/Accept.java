@@ -14,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -33,8 +35,8 @@ public class Accept {
     private UUID acceptId;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "payment_private_id")
-    private UUID paymentPrivateId;
+    @JoinColumn(name = "payment_public_id", referencedColumnName = "payment_private_id")
+    private Payment paymentPrivateId;
 
     @Column(name = "client_callback_url")
     private String clientCallbackUrl;
@@ -45,7 +47,6 @@ public class Accept {
     @Column(name = "key")
     private String key;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "accept_status_id")
-    private String acceptStatusId;
+    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
+    private List<AcceptStatus> acceptStatuses = new ArrayList<>();
 }

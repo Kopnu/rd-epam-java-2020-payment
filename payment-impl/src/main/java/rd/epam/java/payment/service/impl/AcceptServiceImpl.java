@@ -1,6 +1,7 @@
 package rd.epam.java.payment.service.impl;
 
 import rd.epam.java.payment.domain.entity.Accept;
+import rd.epam.java.payment.domain.entity.AcceptStatus;
 import rd.epam.java.payment.repository.AcceptRepository;
 import rd.epam.java.payment.service.AcceptService;
 
@@ -45,7 +46,7 @@ public class AcceptServiceImpl implements AcceptService {
             return null;
         }
         log.debug("createAccept() - create accept {}", accept);
-        accept.setAcceptStatusId("Принят в обработку");
+        accept.setAcceptStatuses(List.of(new AcceptStatus("Принят в обработку")));//setAcceptStatusId("Принят в обработку");
         acceptRepository.save(accept);
         return acceptRepository.findById(accept.getAcceptId()).get();
     }

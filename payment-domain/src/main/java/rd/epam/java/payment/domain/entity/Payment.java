@@ -28,21 +28,23 @@ public class Payment {
     @GenericGenerator(
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "payment_private_id")
     private UUID paymentPrivateId;
 
+    @Column(name = "payment_public_id")
     private UUID paymentPublicId;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "client_id")
+    @JoinColumn(name = "client_id", referencedColumnName = "client_id")
     private Client clientId;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "receiver_account_id")
-    private UUID receiverAccountId;
+    @JoinColumn(name = "receiver_account_id", referencedColumnName = "account_id")
+    private Account receiverAccountId;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "sender_account_id")
-    private UUID senderAccountId;
+    @JoinColumn(name = "sender_account_id", referencedColumnName = "account_id")
+    private Account senderAccountId;
 
     private Double amount;
 
