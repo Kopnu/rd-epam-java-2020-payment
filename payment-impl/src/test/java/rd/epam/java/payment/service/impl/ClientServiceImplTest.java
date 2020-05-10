@@ -52,7 +52,8 @@ public class ClientServiceImplTest {
     @Test
     public void testCreateClient() {
         doNothing().when(clientRepository).save(VALID_CLIENT);
-        when(clientRepository.findById(VALID_CLIENT.getId())).thenReturn(Optional.of(VALID_CLIENT));
+        when(clientRepository.findById(VALID_CLIENT.getId()))
+                .thenReturn(Optional.of(VALID_CLIENT));
         Client result = clientServiceImpl.createClient(VALID_CLIENT);
         verify(clientRepository).save(VALID_CLIENT);
         assertEquals(VALID_CLIENT, result);
@@ -82,7 +83,8 @@ public class ClientServiceImplTest {
         UUID randomUuid = UUID.randomUUID();
         List<UUID> uuids = List.of(VALID_UUID, randomUuid);
         List<Client> clients = List.of(VALID_CLIENT, new Client().setId(randomUuid));
-        when(clientRepository.findByIdList(uuids)).thenReturn(clients);
+        when(clientRepository.findByIdList(uuids))
+                .thenReturn(clients);
         List<Client> result = clientServiceImpl.findAll(uuids);
         assertEquals(clients, result);
     }
@@ -90,7 +92,8 @@ public class ClientServiceImplTest {
     @Test
     public void testFindAllWhenUuidsIsEmpty() {
         List<UUID> uuids = Collections.emptyList();
-        when(clientRepository.findByIdList(uuids)).thenReturn(Collections.emptyList());
+        when(clientRepository.findByIdList(uuids))
+                .thenReturn(Collections.emptyList());
         List<Client> result = clientServiceImpl.findAll(uuids);
         assertEquals(Collections.emptyList(), result);
     }
@@ -117,7 +120,9 @@ public class ClientServiceImplTest {
 
     @Test
     public void testTrueDelete() {
-        doNothing().when(clientRepository).delete(VALID_UUID);
+        doNothing()
+                .when(clientRepository)
+                .delete(VALID_UUID);
         boolean result = clientServiceImpl.delete(VALID_UUID);
         verify(clientRepository).delete(VALID_UUID);
         assertTrue(result);

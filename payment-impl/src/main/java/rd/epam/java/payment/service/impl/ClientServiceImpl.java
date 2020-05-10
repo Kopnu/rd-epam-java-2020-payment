@@ -15,7 +15,7 @@ import java.util.UUID;
 /**
  * {@link ClientService} implementation.
  *
- * @author Sergei_Kornilov
+ * @author Mihail_Sevryugin
  */
 @Slf4j
 @RequiredArgsConstructor
@@ -32,7 +32,6 @@ public class ClientServiceImpl implements ClientService {
         clientRepository.save(client);
         return clientRepository.findById(client.getId()).get();
     }
-
 
     @Override
     public Client find(UUID uuid) {
