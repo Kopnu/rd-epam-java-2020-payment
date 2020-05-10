@@ -107,21 +107,4 @@ public class ClientRepository {
             log.error("delete() - error during deleting ",e);
         }
     }
-
-    /**
-     * Finds client in database by his id
-     *
-     * @param name of client
-     * @return found client or empty object
-     */
-    public Optional<Client> findByName(String name) {
-        try {
-            log.debug("findByName() - find client by name = {}", name);
-            TypedQuery<Client> query = entityManager.createQuery(qlQueryName, Client.class);
-            return Optional.ofNullable(query.setParameter("name", name).getSingleResult());
-        } catch (Exception e) {
-            log.error("findByName() - error during searching by name ",e);
-        }
-        return Optional.empty();
-    }
 }
