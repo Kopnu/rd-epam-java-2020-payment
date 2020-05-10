@@ -45,12 +45,6 @@
             <groupId>org.codehaus.janino</groupId>
             <artifactId>janino</artifactId>
         </dependency>
-
-        <!-- Tests -->
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-        </dependency>
         <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
