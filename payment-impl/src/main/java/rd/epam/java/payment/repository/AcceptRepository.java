@@ -2,8 +2,8 @@ package rd.epam.java.payment.repository;
 
 import rd.epam.java.payment.domain.entity.Accept;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -20,14 +20,10 @@ import java.util.UUID;
  */
 @Slf4j
 @Repository
+@RequiredArgsConstructor
 public class AcceptRepository {
 
     private final EntityManager entityManager;
-
-    @Autowired
-    public AcceptRepository(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
 
     private static final String FIND_BY_ID_LIST = "Select a from pm_accepts a Where a.accept_id=:ids";
 

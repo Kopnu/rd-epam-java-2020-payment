@@ -1,7 +1,7 @@
 package rd.epam.java.payment.repository;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import rd.epam.java.payment.domain.entity.Payment;
@@ -20,16 +20,12 @@ import java.util.UUID;
  */
 @Slf4j
 @Repository
+@RequiredArgsConstructor
 public class PaymentRepository {
 
     private final EntityManager entityManager;
 
-    @Autowired
-    public PaymentRepository(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
-
-    private static String qlQueryID = "Select b from pm_payments b Where b.payment_private=:ids";
+    private static final String qlQueryID = "Select b from pm_payments b Where b.payment_private=:ids";
 
     /**
      * Add payment record into database

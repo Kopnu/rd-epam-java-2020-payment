@@ -2,8 +2,8 @@ package rd.epam.java.payment.repository;
 
 import rd.epam.java.payment.domain.entity.Account;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -19,14 +19,10 @@ import java.util.Optional;
  */
 @Slf4j
 @Repository
+@RequiredArgsConstructor
 public class AccountRepository {
 
     private final EntityManager entityManager;
-
-    @Autowired
-    public AccountRepository(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
 
     /**
      * Add account record into database

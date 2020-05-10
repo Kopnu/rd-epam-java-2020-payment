@@ -1,7 +1,7 @@
 package rd.epam.java.payment.repository;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import rd.epam.java.payment.domain.entity.Client;
@@ -19,14 +19,10 @@ import java.util.Optional;
  */
 @Slf4j
 @Repository
+@RequiredArgsConstructor
 public class ClientRepository {
 
     private final EntityManager entityManager;
-
-    @Autowired
-    public ClientRepository(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
 
     /**
      * Add client record into database
