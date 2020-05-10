@@ -14,6 +14,7 @@ import rd.epam.java.payment.repository.ClientRepository;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -38,7 +39,7 @@ public class ClientServiceImplTest {
     @InjectMocks
     private ClientServiceImpl clientServiceImpl;
 
-    @BeforeMethod
+    @BeforeClass
     public void setUp() {
         MockitoAnnotations.initMocks(this);
     }
@@ -77,10 +78,6 @@ public class ClientServiceImplTest {
         assertEquals(Collections.emptyList(), result);
     }
 
-    /*
-    в переменной clients - лист из 2 значений
-    в result - лист из 0 значений
-    */
     @Test
     public void testFindAll() {
         UUID randomUuid = UUID.randomUUID();
@@ -105,9 +102,6 @@ public class ClientServiceImplTest {
         assertNull(result);
     }
 
-    /*
-    тут ошибка
-    */
     @Test
     public void testUpdate() {
         when(clientRepository.update(VALID_CLIENT)).thenReturn(Optional.of(VALID_CLIENT));
@@ -122,9 +116,6 @@ public class ClientServiceImplTest {
         assertNull(result);
     }
 
-    /*
-    тут ошибка
-    */
     @Test
     public void testTrueDelete() {
         doNothing().when(clientRepository).delete(VALID_UUID);
