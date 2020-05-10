@@ -11,10 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 /**
@@ -36,7 +34,7 @@ public class Account {
     private UUID accountId;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "client_id", referencedColumnName = "client_id")
+    @JoinColumn(name = "client_id")
     private Client clientId;
 
     @Column(name = "account_number")
@@ -51,6 +49,7 @@ public class Account {
     @Column(name = "inn")
     private String inn;
 
-    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
-    private List<AccountStatus> accountStatuses = new ArrayList<>();
+    @OneToOne
+    @JoinColumn(name = "account_status_id", referencedColumnName = "id")
+    private AccountStatus accountStatus;
 }

@@ -22,10 +22,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jacoco-maven-plugin.haltOnFailure>false</jacoco-maven-plugin.haltOnFailure>
 
+        <spring-core.version>5.2.6.RELEASE</spring-core.version>
+
         <hibernate.version>5.4.14.Final</hibernate.version>
         <postgresql.version>42.2.12</postgresql.version>
         <liquibase.version>3.8.9</liquibase.version>
-        <spring-core.version>5.2.6.RELEASE</spring-core.version>
 
         <lombok.version>1.18.12</lombok.version>
         <logback-classic.version>1.2.3</logback-classic.version>
@@ -43,6 +44,18 @@
                 <groupId>com.epam.rd</groupId>
                 <artifactId>payment-domain</artifactId>
                 <version>${project.version}</version>
+            </dependency>
+
+            <!-- Spring -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring-core.version}</version>
             </dependency>
 
             <!--JPA/Database-->
@@ -65,16 +78,6 @@
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-core</artifactId>
                 <version>${liquibase.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-core</artifactId>
-                <version>${spring-core.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-context</artifactId>
-                <version>${spring-core.version}</version>
             </dependency>
 
             <!-- Utils -->

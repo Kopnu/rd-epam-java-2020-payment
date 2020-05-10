@@ -7,15 +7,17 @@ import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
 /**
- * JpaConfig.
+ * JPA Configuration.
  *
  * @author Dmitrii_Lopatin
  */
 @Configuration
 public class JpaConfig {
 
+    private static final String PERSISTENCE_UNIT_NAME = "payment-unit";
+
     @Bean
     public EntityManager entityManager() {
-        return Persistence.createEntityManagerFactory("payment-unit").createEntityManager();
+        return Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME).createEntityManager();
     }
 }

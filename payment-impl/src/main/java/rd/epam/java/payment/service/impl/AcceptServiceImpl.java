@@ -7,7 +7,6 @@ import rd.epam.java.payment.service.AcceptService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -46,7 +45,7 @@ public class AcceptServiceImpl implements AcceptService {
             return null;
         }
         log.debug("createAccept() - create accept {}", accept);
-        accept.setAcceptStatuses(List.of(new AcceptStatus("Принят в обработку")));//setAcceptStatusId("Принят в обработку");
+        accept.setAcceptStatus(new AcceptStatus("Приянят в обработку"));
         acceptRepository.save(accept);
         return acceptRepository.findById(accept.getAcceptId()).get();
     }

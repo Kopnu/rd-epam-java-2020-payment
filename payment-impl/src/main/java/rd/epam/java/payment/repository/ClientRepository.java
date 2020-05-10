@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import rd.epam.java.payment.domain.entity.Client;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import java.util.Collections;
 import java.util.List;
@@ -21,8 +20,13 @@ import java.util.Optional;
 @Slf4j
 @Repository
 public class ClientRepository {
+
+    private final EntityManager entityManager;
+
     @Autowired
-    private EntityManager entityManager;
+    public ClientRepository(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
     /**
      * Add client record into database

@@ -5,7 +5,6 @@ import lombok.experimental.Accessors;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -28,21 +27,19 @@ public class Payment {
     @GenericGenerator(
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "payment_private_id")
     private UUID paymentPrivateId;
 
-    @Column(name = "payment_public_id")
     private UUID paymentPublicId;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "client_id", referencedColumnName = "client_id")
+    @JoinColumn(name = "client_id")
     private Client clientId;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "receiver_account_id", referencedColumnName = "account_id")
     private Account receiverAccountId;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "sender_account_id", referencedColumnName = "account_id")
     private Account senderAccountId;
 

@@ -21,16 +21,14 @@ import java.util.UUID;
 @Data
 @Entity
 @Table(name = "pm_accept_statuses")
-public class AcceptStatus implements Serializable {
+public class AcceptStatus {
 
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator")
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
-    private Accept id;
+    private UUID id;
 
     private String status;
 

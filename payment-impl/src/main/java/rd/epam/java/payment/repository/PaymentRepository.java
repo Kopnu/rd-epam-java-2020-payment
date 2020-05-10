@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import rd.epam.java.payment.domain.entity.Payment;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import java.util.Collections;
 import java.util.List;
@@ -22,8 +21,14 @@ import java.util.UUID;
 @Slf4j
 @Repository
 public class PaymentRepository {
+
+    private final EntityManager entityManager;
+
     @Autowired
-    private EntityManager entityManager;
+    public PaymentRepository(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
     private static String qlQueryID = "Select b from pm_payments b Where b.payment_private=:ids";
 
     /**
