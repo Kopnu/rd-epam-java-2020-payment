@@ -58,7 +58,6 @@ public class ClientServiceImplTest {
         Client result = clientServiceImpl.createClient(VALID_CLIENT);
 
         verify(clientRepository).save(VALID_CLIENT);
-
         assertEquals(VALID_CLIENT, result);
     }
 
@@ -130,7 +129,6 @@ public class ClientServiceImplTest {
         boolean result = clientServiceImpl.delete(VALID_UUID);
 
         verify(clientRepository).delete(VALID_UUID);
-
         assertTrue(result);
     }
 
