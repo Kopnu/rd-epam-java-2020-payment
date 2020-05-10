@@ -51,7 +51,9 @@ public class ClientServiceImplTest {
 
     @Test
     public void testCreateClient() {
-        doNothing().when(clientRepository).save(VALID_CLIENT);
+        doNothing()
+                .when(clientRepository)
+                .save(VALID_CLIENT);
         when(clientRepository.findById(VALID_CLIENT.getId()))
                 .thenReturn(Optional.of(VALID_CLIENT));
         Client result = clientServiceImpl.createClient(VALID_CLIENT);
@@ -69,7 +71,7 @@ public class ClientServiceImplTest {
     public void testFind() {
         when(clientRepository.findById(VALID_UUID)).thenReturn(Optional.of(VALID_CLIENT));
         Client result = clientServiceImpl.find(VALID_UUID);
-        assertEquals(VALID_CLIENT,result);
+        assertEquals(VALID_CLIENT, result);
     }
 
     @Test

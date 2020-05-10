@@ -24,7 +24,7 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public Client createClient(Client client) {
-        if(Objects.isNull(client)){
+        if (Objects.isNull(client)) {
             log.error("createClient() - error client is null");
             return null;
         }
@@ -45,7 +45,7 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public List<Client> findAll(List<UUID> ids) {
-        if(Objects.isNull(ids)){
+        if (Objects.isNull(ids)) {
             log.error("findAll() - error ids is null");
             return Collections.emptyList();
         }
@@ -55,21 +55,21 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public Client update(Client client) {
-        if(Objects.isNull(client)){
+        if (Objects.isNull(client)) {
             log.error("update() - error client is null");
             return null;
         }
-        log.debug("update() - update client : {}",client);
+        log.debug("update() - update client : {}", client);
         return clientRepository.update(client).get();
     }
 
     @Override
     public boolean delete(UUID uuid) {
-        if(Objects.isNull(uuid)){
+        if (Objects.isNull(uuid)) {
             log.error("delete() - error uuid is null");
             return false;
         }
-        log.debug("delete() - delete client by id : {}",uuid);
+        log.debug("delete() - delete client by id : {}", uuid);
         clientRepository.delete(uuid);
         return true;
     }

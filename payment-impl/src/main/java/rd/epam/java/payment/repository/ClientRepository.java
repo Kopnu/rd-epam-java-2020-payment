@@ -19,8 +19,8 @@ import java.util.UUID;
  */
 @Slf4j
 public class ClientRepository {
-    private final EntityManager entityManager = Persistence.createEntityManagerFactory("payment-unit").createEntityManager();
     private static String qlQueryID = "Select b from pm_clients b Where b.client_id=:ids";
+    private final EntityManager entityManager = Persistence.createEntityManagerFactory("payment-unit").createEntityManager();
 
     /**
      * Add client record into database
@@ -34,7 +34,7 @@ public class ClientRepository {
             entityManager.persist(client);
             entityManager.getTransaction().commit();
         } catch (Exception e) {
-            log.error("save() - error during saving ",e);
+            log.error("save() - error during saving ", e);
         }
     }
 
@@ -50,7 +50,7 @@ public class ClientRepository {
             Client client = entityManager.find(Client.class, id);
             return Optional.ofNullable(client);
         } catch (Exception e) {
-            log.error("findByIdList() - error during searching by id ",e);
+            log.error("findByIdList() - error during searching by id ", e);
         }
         return Optional.empty();
     }
@@ -67,7 +67,7 @@ public class ClientRepository {
             TypedQuery<Client> query = entityManager.createQuery(qlQueryID, Client.class);
             return query.setParameter("ids", ids).getResultList();
         } catch (Exception e) {
-            log.error("findByIdList() - error during searching by id list ",e);
+            log.error("findByIdList() - error during searching by id list ", e);
         }
         return Collections.emptyList();
     }
@@ -86,7 +86,7 @@ public class ClientRepository {
             entityManager.getTransaction().commit();
             return Optional.of(client);
         } catch (Exception e) {
-            log.error("update() - error during updating ",e);
+            log.error("update() - error during updating ", e);
         }
         return Optional.empty();
     }
@@ -103,7 +103,7 @@ public class ClientRepository {
             entityManager.remove(entityManager.find(Client.class, id));
             entityManager.getTransaction().commit();
         } catch (Exception e) {
-            log.error("delete() - error during deleting ",e);
+            log.error("delete() - error during deleting ", e);
         }
     }
 }
