@@ -77,6 +77,10 @@ public class ClientServiceImplTest {
         assertEquals(Collections.emptyList(), result);
     }
 
+    /*
+    в переменной clients - лист из 2 значений
+    в result - лист из 0 значений
+    */
     @Test
     public void testFindAll() {
         UUID randomUuid = UUID.randomUUID();
@@ -101,6 +105,9 @@ public class ClientServiceImplTest {
         assertNull(result);
     }
 
+    /*
+    тут ошибка
+    */
     @Test
     public void testUpdate() {
         when(clientRepository.update(VALID_CLIENT)).thenReturn(Optional.of(VALID_CLIENT));
@@ -115,6 +122,9 @@ public class ClientServiceImplTest {
         assertNull(result);
     }
 
+    /*
+    тут ошибка
+    */
     @Test
     public void testTrueDelete() {
         doNothing().when(clientRepository).delete(VALID_UUID);
