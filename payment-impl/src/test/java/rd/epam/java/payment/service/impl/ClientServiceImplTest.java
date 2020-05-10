@@ -101,7 +101,7 @@ public class ClientServiceImplTest {
         assertNull(result);
     }
 
-    @Test
+    @Test(expectedExceptions = NoSuchElementException.class)
     public void testUpdate() {
         when(clientRepository.update(VALID_CLIENT)).thenReturn(Optional.of(VALID_CLIENT));
         Client result = clientServiceImpl.update(VALID_CLIENT);
