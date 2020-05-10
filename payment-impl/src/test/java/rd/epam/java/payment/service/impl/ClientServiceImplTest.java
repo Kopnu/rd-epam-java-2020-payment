@@ -105,7 +105,6 @@ public class ClientServiceImplTest {
     public void testUpdate() {
         when(clientRepository.update(VALID_CLIENT)).thenReturn(Optional.of(VALID_CLIENT));
         Client result = clientServiceImpl.update(VALID_CLIENT);
-        System.out.println("result:" + result);
         assertEquals(VALID_CLIENT, result);
     }
 

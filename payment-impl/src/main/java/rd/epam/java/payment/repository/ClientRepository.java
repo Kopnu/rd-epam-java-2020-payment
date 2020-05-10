@@ -21,7 +21,6 @@ import java.util.UUID;
 public class ClientRepository {
     private final EntityManager entityManager = Persistence.createEntityManagerFactory("payment-unit").createEntityManager();
     private static String qlQueryID = "Select b from pm_clients b Where b.client_id=:ids";
-    private static String qlQueryName = "Select b from pm_clients b Where b.name=:name";
 
     /**
      * Add client record into database
