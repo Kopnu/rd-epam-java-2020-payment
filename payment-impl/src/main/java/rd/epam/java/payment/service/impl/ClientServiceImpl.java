@@ -30,7 +30,7 @@ public class ClientServiceImpl implements ClientService {
         }
         log.debug("createClient() - create client {}", client);
         clientRepository.save(client);
-        return clientRepository.findByName(client.getName()).get();
+        return clientRepository.findById(client.getId()).get();
     }
 
     @Override
