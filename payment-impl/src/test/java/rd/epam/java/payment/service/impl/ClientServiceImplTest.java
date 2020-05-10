@@ -4,7 +4,9 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertNull;
+import static org.testng.Assert.assertTrue;
 
 import rd.epam.java.payment.domain.entity.Client;
 import rd.epam.java.payment.repository.ClientRepository;
@@ -16,6 +18,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Collections;
+import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -68,23 +72,66 @@ public class ClientServiceImplTest {
     }
 
     @Test
+    public void testFindAllWhenUuidsIsNull() {
+        List<Client> result = clientServiceImpl.findAll(null);
+        assertEquals(Collections.emptyList(), result);
+    }
+
+    @Test
     public void testFindAll() {
+        UUID randomUuid = UUID.randomUUID();
+        List<UUID> uuids = List.of(VALID_UUID, randomUuid);
+        List<Client> clients = List.of(VALID_CLIENT, new Client().setId(randomUuid));
+        when(clientRepository.findByIdList(uuids)).thenReturn(clients);
+        List<Client> result = clientServiceImpl.findAll(uuids);
+        assertEquals(clients, result);
+    }
+
+    @Test
+    public void testFindAllWhenUuidsIsEmpty() {
+        List<UUID> uuids = Collections.emptyList();
+        when(clientRepository.findByIdList(uuids)).thenReturn(Collections.emptyList());
+        List<Client> result = clientServiceImpl.findAll(uuids);
+        assertEquals(Collections.emptyList(), result);
+    }
+
+    @Test
+    public void testUpdateWhenClientIsNull() {
+        Client result = clientServiceImpl.update(null);
+        assertNull(result);
     }
 
     @Test
     public void testUpdate() {
+        when(clientRepository.update(VALID_CLIENT)).thenReturn(Optional.of(VALID_CLIENT));
+        Client result = clientServiceImpl.update(VALID_CLIENT);
+        System.out.println("result:" + result);
+        assertEquals(VALID_CLIENT, result);
+    }
+
+    @Test(expectedExceptions = NoSuchElementException.class)
+    public void testUpdateWhenUpdateIsNull() {
+        when(clientRepository.update(VALID_CLIENT)).thenReturn(Optional.empty());
+        Client result = clientServiceImpl.update(VALID_CLIENT);
+        assertNull(result);
     }
 
     @Test
-    public void testDelete() {
+    public void testTrueDelete() {
+        doNothing().when(clientRepository).delete(VALID_UUID);
+        boolean result = clientServiceImpl.delete(VALID_UUID);
+        verify(clientRepository).delete(VALID_UUID);
+        assertTrue(result);
+    }
+
+    @Test
+    public void testFalseDelete() {
+        boolean result = clientServiceImpl.delete(null);
+        assertFalse(result);
     }
 
     private Client getClient() {
         return new Client()
-                .setId(VALID_UUID)
-                .setName("name")
-                .setDescription("description")
-                .setPayments(Collections.emptyList())
-                .setAccounts(Collections.emptyList());
+                .setId(VALID_UUID);
     }
 }
