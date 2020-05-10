@@ -33,6 +33,7 @@ public class ClientServiceImpl implements ClientService {
         return clientRepository.findById(client.getId()).get();
     }
 
+
     @Override
     public Client find(UUID uuid) {
         if (Objects.isNull(uuid)) {
