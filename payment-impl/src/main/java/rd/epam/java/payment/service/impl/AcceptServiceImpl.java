@@ -45,7 +45,7 @@ public class AcceptServiceImpl implements AcceptService {
             return null;
         }
         log.debug("createAccept() - create accept {}", accept);
-        accept.setAcceptStatus(new AcceptStatus("Приянят в обработку"));
+        accept.setAcceptStatus(new AcceptStatus("Принят в обработку"));
         acceptRepository.save(accept);
         return acceptRepository.findById(accept.getAcceptId()).get();
     }
