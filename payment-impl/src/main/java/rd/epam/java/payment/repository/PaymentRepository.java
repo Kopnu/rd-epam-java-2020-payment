@@ -23,9 +23,9 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class PaymentRepository {
 
-    private final EntityManager entityManager;
-
     private static final String qlQueryID = "Select b from pm_payments b Where b.payment_private=:ids";
+
+    private final EntityManager entityManager;
 
     /**
      * Add payment record into database

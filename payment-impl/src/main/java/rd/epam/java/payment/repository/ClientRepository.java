@@ -25,9 +25,9 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class ClientRepository {
 
-    private final EntityManager entityManager;
+    private static final String qlQueryID = "Select b from pm_clients b Where b.client_id=:ids";
 
-    private static String qlQueryID = "Select b from pm_clients b Where b.client_id=:ids";
+    private final EntityManager entityManager;
    
     /**
      * Add client record into database
