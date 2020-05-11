@@ -6,11 +6,14 @@ import org.springframework.stereotype.Repository;
 
 import rd.epam.java.payment.domain.entity.Client;
 
+import lombok.extern.slf4j.Slf4j;
+
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 /**
  * Client repository for working with client table in database
@@ -24,6 +27,8 @@ public class ClientRepository {
 
     private final EntityManager entityManager;
 
+    private static String qlQueryID = "Select b from pm_clients b Where b.client_id=:ids";
+   
     /**
      * Add client record into database
      *
@@ -31,12 +36,12 @@ public class ClientRepository {
      */
     public void save(Client client) {
         try {
-            log.info("save() - save client {}", client);
+            log.debug("save() - save client {}", client);
             entityManager.getTransaction().begin();
             entityManager.persist(client);
             entityManager.getTransaction().commit();
         } catch (Exception e) {
-            log.warn("Error during saving: ", e);
+            log.error("save() - error during saving ", e);
         }
     }
 
@@ -46,13 +51,13 @@ public class ClientRepository {
      * @param id of client
      * @return found client or empty object
      */
-    public Optional<Client> findById(Integer id) {
+    public Optional<Client> findById(UUID id) {
         try {
-            log.info("findById() - find client by id = {}", id);
+            log.debug("findById() - find client by id = {}", id);
             Client client = entityManager.find(Client.class, id);
             return Optional.ofNullable(client);
         } catch (Exception e) {
-            log.warn("Error during searching by id: ", e);
+            log.error("findByIdList() - error during searching by id ", e);
         }
         return Optional.empty();
     }
@@ -63,13 +68,13 @@ public class ClientRepository {
      * @param ids - list of id
      * @return list of clients or empty list
      */
-    public List<Client> findByIdList(List<Integer> ids) {
+    public List<Client> findByIdList(List<UUID> ids) {
         try {
-            log.info("findByIdList() - find list of clients by id = {}", ids);
-            TypedQuery<Client> query = entityManager.createQuery("Select b from pm_clients b Where b.client_id=:ids", Client.class);
+            log.debug("findByIdList() - find list of clients by id = {}", ids);
+            TypedQuery<Client> query = entityManager.createQuery(qlQueryID, Client.class);
             return query.setParameter("ids", ids).getResultList();
         } catch (Exception e) {
-            log.warn("Error during searching by id list: ", e);
+            log.error("findByIdList() - error during searching by id list ", e);
         }
         return Collections.emptyList();
     }
@@ -82,13 +87,13 @@ public class ClientRepository {
      */
     public Optional<Client> update(Client client) {
         try {
-            log.info("update() - update client {}", client);
+            log.debug("update() - update client {}", client);
             entityManager.getTransaction().begin();
             entityManager.merge(client);
             entityManager.getTransaction().commit();
             return Optional.of(client);
         } catch (Exception e) {
-            log.warn("Error during updating: ", e);
+            log.error("update() - error during updating ", e);
         }
         return Optional.empty();
     }
@@ -98,14 +103,14 @@ public class ClientRepository {
      *
      * @param id of record for deleting
      */
-    public void delete(Integer id) {
+    public void delete(UUID id) {
         try {
-            log.info("delete() - delete client by id = {}", id);
+            log.debug("delete() - delete client by id = {}", id);
             entityManager.getTransaction().begin();
             entityManager.remove(entityManager.find(Client.class, id));
             entityManager.getTransaction().commit();
         } catch (Exception e) {
-            log.warn("Error during deleting: ", e);
+            log.error("delete() - error during deleting ", e);
         }
     }
 }
