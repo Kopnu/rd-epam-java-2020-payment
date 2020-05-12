@@ -6,8 +6,10 @@ import rd.epam.java.payment.service.ClientService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import java.util.Collections;
+
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -17,7 +19,9 @@ import java.util.UUID;
  *
  * @author Mihail_Sevryugin
  */
+
 @Slf4j
+@Service
 @RequiredArgsConstructor
 public class ClientServiceImpl implements ClientService {
     private final ClientRepository clientRepository;

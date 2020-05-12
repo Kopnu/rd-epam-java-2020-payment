@@ -9,6 +9,7 @@ import static org.testng.Assert.assertNull;
 import static org.testng.Assert.assertTrue;
 
 import rd.epam.java.payment.domain.entity.Accept;
+import rd.epam.java.payment.domain.entity.AcceptStatus;
 import rd.epam.java.payment.repository.AcceptRepository;
 
 import org.mockito.InjectMocks;
@@ -31,7 +32,7 @@ import java.util.UUID;
 public class AcceptServiceImplTest {
     private final Accept VALID_ACCEPT = getAccept();
     private final UUID VALID_UUID = UUID.randomUUID();
-    private final String VALID_STATUS_ID = "Принят в обработку";
+    private final AcceptStatus VALID_STATUS = new AcceptStatus("Принят в обработку");
 
     @Mock
     private AcceptRepository acceptRepository;
@@ -76,7 +77,7 @@ public class AcceptServiceImplTest {
         Accept result = acceptServiceImpl.createAccept(VALID_ACCEPT);
 
         verify(acceptRepository).save(VALID_ACCEPT);
-        assertEquals(VALID_ACCEPT.getAcceptStatusId(), VALID_STATUS_ID);
+        assertEquals(VALID_ACCEPT.getAcceptStatus(), VALID_STATUS);
         assertEquals(VALID_ACCEPT, result);
     }
 
@@ -88,7 +89,7 @@ public class AcceptServiceImplTest {
         Accept result = acceptServiceImpl.createAccept(VALID_ACCEPT);
 
         verify(acceptRepository).save(VALID_ACCEPT);
-        assertEquals(VALID_ACCEPT.getAcceptStatusId(), VALID_STATUS_ID);
+        assertEquals(VALID_ACCEPT.getAcceptStatus(), VALID_STATUS);
         assertNull(result);
     }
 

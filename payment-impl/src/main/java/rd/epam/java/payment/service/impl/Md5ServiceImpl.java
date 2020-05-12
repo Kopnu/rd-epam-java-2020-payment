@@ -3,6 +3,8 @@ package rd.epam.java.payment.service.impl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.springframework.stereotype.Service;
+
 import rd.epam.java.payment.domain.entity.Account;
 import rd.epam.java.payment.service.AccountService;
 import rd.epam.java.payment.service.Md5Service;
@@ -17,6 +19,7 @@ import java.util.UUID;
  * @author Sergei_Kornilov
  */
 @Slf4j
+@Service
 @RequiredArgsConstructor
 public class Md5ServiceImpl implements Md5Service {
 

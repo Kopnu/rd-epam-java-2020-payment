@@ -7,7 +7,6 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -17,7 +16,7 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Entity for table clients
+ * Entity for table pm_clients
  */
 @Data
 @Entity
@@ -33,12 +32,12 @@ public class Client {
     private UUID id;
 
     private String name;
-    
+
     private String description;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "client", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "clientId", cascade = CascadeType.ALL)
     private List<Payment> payments = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "client", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "clientId", cascade = CascadeType.ALL)
     private List<Account> accounts = new ArrayList<>();
 }

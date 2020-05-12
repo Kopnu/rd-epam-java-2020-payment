@@ -1,11 +1,14 @@
 package rd.epam.java.payment.repository;
 
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Repository;
+
 import rd.epam.java.payment.domain.entity.Client;
 
 import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import java.util.Collections;
 import java.util.List;
@@ -18,10 +21,14 @@ import java.util.UUID;
  * @author Dmitrii_Lopatin
  */
 @Slf4j
+@Repository
+@RequiredArgsConstructor
 public class ClientRepository {
-    private static String qlQueryID = "Select b from pm_clients b Where b.client_id=:ids";
-    private final EntityManager entityManager = Persistence.createEntityManagerFactory("payment-unit").createEntityManager();
 
+    private static final String qlQueryID = "Select b from pm_clients b Where b.client_id=:ids";
+
+    private final EntityManager entityManager;
+   
     /**
      * Add client record into database
      *
