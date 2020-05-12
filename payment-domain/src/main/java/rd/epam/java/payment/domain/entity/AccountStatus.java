@@ -1,7 +1,5 @@
 package rd.epam.java.payment.domain.entity;
 
-import lombok.Data;
-
 /**
  * AccountEnum.
  *
