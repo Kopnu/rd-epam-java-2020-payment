@@ -1,38 +1,25 @@
 package rd.epam.java.payment.domain.entity;
 
-import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import java.io.Serializable;
-import java.util.UUID;
-
 /**
- * Entity for table pm_accept_statuses
+ * AcceptStatus.
  *
- * @author Aleksey_Lukyanov
+ * @author Mihail_Sevryugin
  */
-@Data
-@Entity
-@Table(name = "pm_accept_statuses")
-public class AcceptStatus {
 
-    @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-            name = "UUID",
-            strategy = "org.hibernate.id.UUIDGenerator")
-    private UUID id;
+public enum AcceptStatus {
+    ACCEPTED_FOR_PROCESSING("Принят в обработку"),
+    EXTENDED("Выставлен"),
+    PAID("Оплачен"),
+    ERROR("Ошибка");
 
-    private String status;
+    private final String string;
 
-    public AcceptStatus(String acceptStatus) {
-        this.status = acceptStatus;
+
+    AcceptStatus(String string) {
+        this.string = string;
+    }
+
+    public String getString() {
+        return string;
     }
 }
