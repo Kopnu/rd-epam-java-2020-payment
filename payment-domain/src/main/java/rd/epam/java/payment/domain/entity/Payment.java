@@ -5,7 +5,6 @@ import lombok.experimental.Accessors;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -36,13 +35,13 @@ public class Payment {
     @JoinColumn(name = "client_id")
     private Client clientId;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "receiver_account_id")
-    private UUID receiverAccountId;
+    @OneToOne
+    @JoinColumn(name = "receiver_account_id", referencedColumnName = "account_id")
+    private Account receiverAccountId;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "sender_account_id")
-    private UUID senderAccountId;
+    @OneToOne
+    @JoinColumn(name = "sender_account_id", referencedColumnName = "account_id")
+    private Account senderAccountId;
 
     private Double amount;
 

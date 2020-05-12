@@ -6,6 +6,7 @@ import rd.epam.java.payment.service.PaymentService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
@@ -18,6 +19,7 @@ import java.util.UUID;
  * @author Dmitrii_Lopatin
  */
 @Slf4j
+@Service
 @RequiredArgsConstructor
 public class PaymentServiceImpl implements PaymentService {
 

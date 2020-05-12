@@ -1,11 +1,13 @@
 package rd.epam.java.payment.service.impl;
 
 import rd.epam.java.payment.domain.entity.Accept;
+import rd.epam.java.payment.domain.entity.AcceptStatus;
 import rd.epam.java.payment.repository.AcceptRepository;
 import rd.epam.java.payment.service.AcceptService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
@@ -18,6 +20,7 @@ import java.util.UUID;
  * @author Dmitrii_Lopatin
  */
 @Slf4j
+@Service
 @RequiredArgsConstructor
 public class AcceptServiceImpl implements AcceptService {
 
@@ -42,7 +45,7 @@ public class AcceptServiceImpl implements AcceptService {
             return null;
         }
         log.debug("createAccept() - create accept {}", accept);
-        accept.setAcceptStatusId("Принят в обработку");
+        accept.setAcceptStatus(new AcceptStatus("Принят в обработку"));
         acceptRepository.save(accept);
         return acceptRepository.findById(accept.getAcceptId()).get();
     }

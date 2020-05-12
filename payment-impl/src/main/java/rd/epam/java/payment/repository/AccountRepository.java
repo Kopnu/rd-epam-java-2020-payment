@@ -2,10 +2,11 @@ package rd.epam.java.payment.repository;
 
 import rd.epam.java.payment.domain.entity.Account;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import java.util.Collections;
 import java.util.List;
@@ -17,8 +18,11 @@ import java.util.Optional;
  * @author Mihail_Sevryugin
  */
 @Slf4j
+@Repository
+@RequiredArgsConstructor
 public class AccountRepository {
-    private final EntityManager entityManager = Persistence.createEntityManagerFactory("payment-unit").createEntityManager();
+
+    private final EntityManager entityManager;
 
     /**
      * Add account record into database
@@ -61,7 +65,7 @@ public class AccountRepository {
      */
     public List<Account> findByIdList(List<Integer> ids) {
         try {
-            log.info("findByList() - find list of accounts by id = {},ids");
+            log.info("findByList() - find list of accounts by id = {}", ids);
             TypedQuery<Account> query = entityManager.createQuery("Select b from pm_accounts b Where b.account_id=:ids", Account.class);
             return query.setParameter("ids", ids).getResultList();
         } catch (Exception e) {
