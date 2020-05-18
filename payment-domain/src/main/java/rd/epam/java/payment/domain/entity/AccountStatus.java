@@ -26,5 +26,9 @@ public class AccountStatus {
     private UUID id;
 
     private String status;
+
+    public AccountStatus(String accountStatus) {
+        this.status = accountStatus;
+    }
 }
 
