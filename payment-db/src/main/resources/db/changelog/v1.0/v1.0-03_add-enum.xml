@@ -6,13 +6,13 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
     <!--drop pm_account_statuses-->
-    <changeSet id="23.05.20-drop-foreign-key-constraint-with-fk_account_status-in-pm_accounts-table"
+    <changeSet id="23.05.20-drop-fk_account_status-in-pm_accounts"
                author="Mihail_Sevryugin">
         <dropForeignKeyConstraint baseTableName="${prefix}_accounts"
                                   constraintName="fk_account_status"/>
     </changeSet>
 
-    <changeSet id="23.05.20-drop-primary-key-in-pm_account_status-table" author="Mihail_Sevryugin">
+    <changeSet id="23.05.20-drop-pk-in-pm_account_status" author="Mihail_Sevryugin">
         <dropPrimaryKey constraintName="${prefix}_account_statuses_pkey"
                         tableName="${prefix}_account_statuses"/>
     </changeSet>
@@ -23,13 +23,13 @@
     </changeSet>
 
     <!--drop pm_accept_statuses-->
-    <changeSet id="23.05.20-drop-foreign-key-constraint-with-fk_accept_status-in-pm_accepts-table"
+    <changeSet id="23.05.20-drop-fk_accept_status-in-pm_accepts"
                author="Mihail_Sevryugin">
         <dropForeignKeyConstraint baseTableName="${prefix}_accepts"
                                   constraintName="fk_accept_statuses"/>
     </changeSet>
 
-    <changeSet id="23.05.20-drop-primary-key-in-pm_accept_status-table" author="Mihail_Sevryugin">
+    <changeSet id="23.05.20-drop-pk-in-pm_accept_status" author="Mihail_Sevryugin">
         <dropPrimaryKey constraintName="${prefix}_accept_statuses_pkey"
                         tableName="${prefix}_accept_statuses"/>
     </changeSet>
