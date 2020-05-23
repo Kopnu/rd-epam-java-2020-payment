@@ -1,11 +1,15 @@
 package rd.epam.java.payment.domain.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
- * AcceptStatus.
+ * Enum for accept status
  *
  * @author Mihail_Sevryugin
  */
-
+@Getter
+@AllArgsConstructor
 public enum AcceptStatus {
     ACCEPTED_FOR_PROCESSING("Принят в обработку"),
     EXTENDED("Выставлен"),
@@ -13,13 +17,4 @@ public enum AcceptStatus {
     ERROR("Ошибка");
 
     private final String string;
-
-
-    AcceptStatus(String string) {
-        this.string = string;
-    }
-
-    public String getString() {
-        return string;
-    }
 }
