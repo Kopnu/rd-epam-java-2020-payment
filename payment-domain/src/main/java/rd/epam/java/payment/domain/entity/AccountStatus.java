@@ -1,30 +1,18 @@
 package rd.epam.java.payment.domain.entity;
 
-import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.util.UUID;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 /**
- * AccountStatus.Entity for account status
+ * Enumeration of possible account statuses
  *
  * @author Mihail_Sevryugin
  */
-@Data
-@Entity
-@Table(name = "pm_account_statuses")
-public class AccountStatus {
-    @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-            name = "UUID",
-            strategy = "org.hibernate.id.UUIDGenerator")
-    private UUID id;
+@Getter
+@AllArgsConstructor
+public enum AccountStatus {
+    ACTIVE("Активен"),
+    CLOSED("Закрыт");
 
-    private String status;
+    private final String string;
 }
-
