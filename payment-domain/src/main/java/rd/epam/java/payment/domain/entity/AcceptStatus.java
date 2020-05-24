@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * Enum for accept status
+ * Enumeration of possible accept statuses
  *
  * @author Mihail_Sevryugin
  */

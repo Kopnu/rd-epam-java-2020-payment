@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * Enum for account status
+ * Enumeration of possible account statuses
  *
  * @author Mihail_Sevryugin
  */

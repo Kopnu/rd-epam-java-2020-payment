@@ -5,36 +5,33 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
-    <!--drop pm_account_statuses-->
-    <changeSet id="23.05.20-drop-fk_account_status-in-pm_accounts"
-               author="Mihail_Sevryugin">
+    <changeSet id="23.05.20-drop-account_status_foreign_key" author="Mihail_Sevryugin">
         <dropForeignKeyConstraint baseTableName="${prefix}_accounts"
                                   constraintName="fk_account_status"/>
     </changeSet>
 
-    <changeSet id="23.05.20-drop-pk-in-pm_account_status" author="Mihail_Sevryugin">
+    <changeSet id="23.05.20-drop-account_status_primary_key" author="Mihail_Sevryugin">
         <dropPrimaryKey constraintName="${prefix}_account_statuses_pkey"
                         tableName="${prefix}_account_statuses"/>
     </changeSet>
 
-    <changeSet id="23.05.20-drop-table-pm_account_statuses" author="Mihail_Sevryugin">
+    <changeSet id="23.05.20-drop-account_statuses-table" author="Mihail_Sevryugin">
         <dropTable cascadeConstraints="true"
                    tableName="${prefix}_account_statuses"/>
     </changeSet>
 
-    <!--drop pm_accept_statuses-->
-    <changeSet id="23.05.20-drop-fk_accept_status-in-pm_accepts"
+    <changeSet id="23.05.20-drop-accept_status_foreign_key"
                author="Mihail_Sevryugin">
         <dropForeignKeyConstraint baseTableName="${prefix}_accepts"
                                   constraintName="fk_accept_statuses"/>
     </changeSet>
 
-    <changeSet id="23.05.20-drop-pk-in-pm_accept_status" author="Mihail_Sevryugin">
+    <changeSet id="23.05.20-drop-accept_statuses_primary_key" author="Mihail_Sevryugin">
         <dropPrimaryKey constraintName="${prefix}_accept_statuses_pkey"
                         tableName="${prefix}_accept_statuses"/>
     </changeSet>
 
-    <changeSet id="23.05.20-drop-table-pm_accept_statuses" author="Mihail_Sevryugin">
+    <changeSet id="23.05.20-drop-accept_statuses-table" author="Mihail_Sevryugin">
         <dropTable cascadeConstraints="true"
                    tableName="${prefix}_accept_statuses"/>
     </changeSet>
