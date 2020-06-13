@@ -23,6 +23,11 @@
         <jacoco-maven-plugin.haltOnFailure>false</jacoco-maven-plugin.haltOnFailure>
 
         <spring-core.version>5.2.6.RELEASE</spring-core.version>
+        <sping-data.version>2.2.7.RELEASE</sping-data.version>
+
+        <javax-servlets.version>4.0.0</javax-servlets.version>
+
+        <jackson.version>2.9.2</jackson.version>
 
         <hibernate.version>5.4.14.Final</hibernate.version>
         <postgresql.version>42.2.12</postgresql.version>
@@ -45,8 +50,13 @@
                 <artifactId>payment-domain</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.epam.rd</groupId>
+                <artifactId>payment-impl</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
-            <!-- Spring -->
+            <!-- Spring Core -->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-core</artifactId>
@@ -56,6 +66,40 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
                 <version>${spring-core.version}</version>
+            </dependency>
+
+            <!-- Spring Web MVC -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${javax-servlets.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- JSON Mapping -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <!-- JSR 349 -->
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>2.0.0.Final</version>
+            </dependency>
+
+            <!-- Spring Data -->
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-jpa</artifactId>
+                <version>${sping-data.version}</version>
             </dependency>
 
             <!--JPA/Database-->
@@ -79,6 +123,13 @@
                 <artifactId>liquibase-core</artifactId>
                 <version>${liquibase.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>1.4.200</version>
+                <scope>runtime</scope>
+            </dependency>
+
 
             <!-- Utils -->
             <dependency>
