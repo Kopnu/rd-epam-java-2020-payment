@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="2020-05-23-drop-account_status_foreign_key" author="Mihail_Sevryugin">
+        <dropForeignKeyConstraint baseTableName="${prefix}_accounts"
+                                  constraintName="fk_account_status"/>
+    </changeSet>
+
+    <changeSet id="2020-05-23-drop-account_status_primary_key" author="Mihail_Sevryugin">
+        <dropPrimaryKey constraintName="${prefix}_account_statuses_pkey"
+                        tableName="${prefix}_account_statuses"/>
+    </changeSet>
+
+    <changeSet id="2020-05-23-drop-account_statuses-table" author="Mihail_Sevryugin">
+        <dropTable cascadeConstraints="true"
+                   tableName="${prefix}_account_statuses"/>
+    </changeSet>
+
+    <changeSet id="2020-05-23-drop-accept_status_foreign_key"
+               author="Mihail_Sevryugin">
+        <dropForeignKeyConstraint baseTableName="${prefix}_accepts"
+                                  constraintName="fk_accept_statuses"/>
+    </changeSet>
+
+    <changeSet id="2020-05-23-drop-accept_statuses_primary_key" author="Mihail_Sevryugin">
+        <dropPrimaryKey constraintName="${prefix}_accept_statuses_pkey"
+                        tableName="${prefix}_accept_statuses"/>
+    </changeSet>
+
+    <changeSet id="2020-05-23-drop-accept_statuses-table" author="Mihail_Sevryugin">
+        <dropTable cascadeConstraints="true"
+                   tableName="${prefix}_accept_statuses"/>
+    </changeSet>
+</databaseChangeLog>

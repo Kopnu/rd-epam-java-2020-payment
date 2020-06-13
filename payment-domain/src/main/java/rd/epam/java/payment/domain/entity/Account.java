@@ -7,6 +7,8 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -49,7 +51,7 @@ public class Account {
     @Column(name = "inn")
     private String inn;
 
-    @OneToOne
-    @JoinColumn(name = "account_status_id", referencedColumnName = "id")
+    @Column(name = "account_status_id")
+    @Enumerated(EnumType.STRING)
     private AccountStatus accountStatus;
 }

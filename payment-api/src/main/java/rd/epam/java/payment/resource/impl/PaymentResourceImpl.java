@@ -14,10 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
-import java.util.function.Supplier;
 
 /**
  * {@link PaymentResource} implementation.
@@ -49,7 +46,7 @@ public class PaymentResourceImpl implements PaymentResource {
 
         Payment payment = paymentConverter.convertToPayment(paymentDto);
         Accept accept = acceptService.find(paymentDto.getAcceptId());
-       // accept.setAcceptStatus("Принят в обработку");
+        // accept.setAcceptStatus("Принят в обработку");
         acceptService.update(accept);
 
         log.info("postResponse() - response = {}", payment.getPaymentPublicId());

@@ -1,6 +1,7 @@
 package rd.epam.java.payment.domain.entity;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.CascadeType;
@@ -20,6 +21,7 @@ import java.util.UUID;
 @Data
 @Entity
 @Table(name = "pm_clients")
+@Accessors(chain = true)
 public class Client {
     @Id
     @GeneratedValue(generator = "UUID")
