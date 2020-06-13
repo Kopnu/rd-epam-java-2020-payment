@@ -32,7 +32,7 @@ import java.util.UUID;
 public class AcceptServiceImplTest {
     private final Accept VALID_ACCEPT = getAccept();
     private final UUID VALID_UUID = UUID.randomUUID();
-    private final AcceptStatus VALID_STATUS = new AcceptStatus("Принят в обработку");
+    private final AcceptStatus VALID_STATUS = AcceptStatus.ACCEPTED_FOR_PROCESSING;
 
     @Mock
     private AcceptRepository acceptRepository;

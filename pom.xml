@@ -23,6 +23,10 @@
         <jacoco-maven-plugin.haltOnFailure>false</jacoco-maven-plugin.haltOnFailure>
 
         <spring-core.version>5.2.6.RELEASE</spring-core.version>
+        <javax-servlets.version>4.0.0</javax-servlets.version>
+        <jackson.version>2.9.2</jackson.version>
+        <validation.version>2.0.0.Final</validation.version>
+        <spring-data.version>2.2.7.RELEASE</spring-data.version>
 
         <hibernate.version>5.4.14.Final</hibernate.version>
         <postgresql.version>42.2.12</postgresql.version>
@@ -35,6 +39,9 @@
 
         <mockito-testng.version>0.1.1</mockito-testng.version>
         <testng.version>7.0.0-beta1</testng.version>
+        <!--plugin-->
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <maven-site-plugin.version>3.9.0</maven-site-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -43,6 +50,11 @@
             <dependency>
                 <groupId>com.epam.rd</groupId>
                 <artifactId>payment-domain</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.epam.rd</groupId>
+                <artifactId>payment-impl</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -56,6 +68,40 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
                 <version>${spring-core.version}</version>
+            </dependency>
+
+            <!-- Spring Web MVC -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${javax-servlets.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- JSON Mapping -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <!-- JSR 349 -->
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>${validation.version}</version>
+            </dependency>
+
+            <!-- Spring Data -->
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-jpa</artifactId>
+                <version>${spring-data.version}</version>
             </dependency>
 
             <!--JPA/Database-->
@@ -123,6 +169,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
@@ -131,6 +178,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
+                <version>${maven-site-plugin.version}</version>
                 <configuration>
                     <outputEncoding>${project.build.sourceEncoding}</outputEncoding>
                 </configuration>
